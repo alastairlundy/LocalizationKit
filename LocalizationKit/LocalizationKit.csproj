@@ -3,12 +3,23 @@
     <PropertyGroup>
         <TargetFramework>netstandard2.0</TargetFramework>
         <RootNamespace>AluminiumTech.LocalizationKit</RootNamespace>
+        <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+        <Title>LocalizationKit</Title>
+        <Authors>AluminiumTech</Authors>
+        <Description>Make Localizations in .NET easy and less painful. </Description>
+        <Copyright>Copyright (c) 2020</Copyright>
+        <PackageLicenseUrl>https://github.com/AluminiumTech/LocalizationKit/blob/master/LICENSE</PackageLicenseUrl>
+        <RepositoryUrl>https://github.com/AluminiumTech/LocalizationKit</RepositoryUrl>
+        <RepositoryType>git</RepositoryType>
+        <PackageReleaseNotes>### Changes
+* Initial release.</PackageReleaseNotes>
+        <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
     </PropertyGroup>
 
     <ItemGroup>
-      <PackageReference Include="aluminiumtechdevkit" Version="1.0.0" />
+      <PackageReference Include="aluminiumtechdevkit" Version="1.1.0" />
       <PackageReference Include="Newtonsoft.Json" Version="12.0.3" />
-      <PackageReference Include="SettingsKit" Version="1.0.0" />
+      <PackageReference Include="SettingsKit" Version="1.2.0" />
     </ItemGroup>
 
 </Project>
