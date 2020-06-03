@@ -1,0 +1,9 @@
+
+*.xml
+*.cache
+*.json
+*.targets
+*.props
+LocalizationKit/.idea/.idea.LocalizationKit/riderModule.iml
+LocalizationKit/obj/Debug/netstandard2.0/.NETStandard,Version=v2.0.AssemblyAttributes.cs
+LocalizationKit/obj/Debug/netstandard2.0/LocalizationKit.AssemblyInfo.cs
