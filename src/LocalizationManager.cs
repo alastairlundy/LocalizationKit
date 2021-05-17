@@ -29,6 +29,7 @@ OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
+using System;
 using System.Collections.Generic;
 
 using AluminiumTech.DevKit;
@@ -76,21 +77,29 @@ namespace AluminiumTech.LocalizationKit
         /// <returns></returns>
         public Localization GetLocalization(string LOCALE)
         {
-            KeyValuePair<string, string> preference;
-            
-            int index = 0;
-            foreach (KeyValuePair<string, string> pairs in this)
+            try
             {
-                if (pairs.Key.Equals(LOCALE))
+                KeyValuePair<string, string> preference;
+
+                int index = 0;
+                foreach (KeyValuePair<string, string> pairs in this)
                 {
-                    preference = this[index];
+                    if (pairs.Key.Equals(LOCALE))
+                    {
+                        preference = this[index];
+                    }
+
+                    index++;
                 }
 
-                index++;
-            } 
-            
-            PreferencesReader<string, string> reader = new PreferencesReader<string, string>(preference.Value);
-            return reader.GetPreferences() as Localization;
+                PreferencesReader<string, string> reader = new PreferencesReader<string, string>(preference.Value);
+                return reader.GetPreferences() as Localization;
+            }
+            catch(Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+                throw new Exception(ex.ToString());
+            }
         }
         
         /// <summary>
