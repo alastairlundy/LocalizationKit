@@ -31,61 +31,13 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 using AluminiumTech.SettingsKit.Base;
 
-namespace AluminiumTech.LocalizationKit
-{
+namespace AluminiumTech.LocalizationKit{
     /// <summary>
     /// A class to represent a Localization
     /// </summary>
     public class Localization : Preferences<string, string>
     {
-        protected string LOCALE_CODE;
-        protected string LANGUAGE;
-        
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="LOCALE_CODE"></param>
-        /// <param name="LANGUAGE"></param>
-        public Localization(string LOCALE_CODE, string LANGUAGE)
-        {
-            this.LOCALE_CODE = LOCALE_CODE;
-            this.LANGUAGE = LANGUAGE;
-        }
-        
-        /// <summary>
-        /// Return the Locale of the Localization.
-        /// </summary>
-        /// <returns></returns>
-        public string GetLocale()
-        {
-            return LOCALE_CODE;
-        }
-        
-        /// <summary>
-        /// Return the Language of the Localization.
-        /// </summary>
-        /// <returns></returns>
-        public string GetLanguage()
-        {
-            return LANGUAGE;
-        }
-        
-        /// <summary>
-        /// Set the Locale of the Localization.
-        /// </summary>
-        /// <param name="locale"></param>
-        public void SetLocale(string locale)
-        {
-            this.LOCALE_CODE = locale;
-        }
-        
-        /// <summary>
-        /// Set the Language of the Localization.
-        /// </summary>
-        /// <param name="language"></param>
-        public void SetLanguage(string language)
-        {
-            this.LANGUAGE = language;
-        }
+        public string LOCALE_CODE { get; set; }
+        public string LANGUAGE {get; set;}
     }
 }
