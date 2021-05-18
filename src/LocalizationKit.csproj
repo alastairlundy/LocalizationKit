@@ -7,19 +7,35 @@
         <Title>LocalizationKit</Title>
         <Authors>AluminiumTech</Authors>
         <Description>Make Localizations in .NET easy and less painful. </Description>
-        <Copyright>Copyright (c) 2020</Copyright>
-        <PackageLicenseUrl>https://github.com/AluminiumTech/LocalizationKit/blob/master/LICENSE</PackageLicenseUrl>
-        <RepositoryUrl>https://github.com/AluminiumTech/LocalizationKit</RepositoryUrl>
+        <Copyright>Copyright (c) 2021</Copyright>
+        <PackageLicenseUrl></PackageLicenseUrl>
+        <RepositoryUrl>https://gitlab.com/aluminiumtechdevkit/LocalizationKit</RepositoryUrl>
         <RepositoryType>git</RepositoryType>
         <PackageReleaseNotes>### Changes
-* Initial release.</PackageReleaseNotes>
+* Fixed an issue with repo url in prior Nuget release.
+* Added more robustness to code with try/catch statements to help determine errors and issues.
+* Made changes to the variable relating to the Path to the json file for localizations.
+* Limited Support for SettingsKit 1.x.x series - Future versions will move towards SettingsKit 2.x.x .
+* Re-licensed the project under MIT to make things easier.</PackageReleaseNotes>
         <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
+        <AssemblyVersion>1.1.0.0</AssemblyVersion>
+        <FileVersion>1.1.0.0</FileVersion>
+        <Version>1.1.0</Version>
+        <PackageLicenseFile>LICENSE.md</PackageLicenseFile>
     </PropertyGroup>
 
     <ItemGroup>
       <PackageReference Include="aluminiumtechdevkit" Version="1.1.0" />
       <PackageReference Include="Newtonsoft.Json" Version="12.0.3" />
       <PackageReference Include="SettingsKit" Version="1.2.0" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <None Include="..\LICENSE.md">
+        <Pack>True</Pack>
+        <PackagePath></PackagePath>
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </None>
     </ItemGroup>
 
 </Project>
