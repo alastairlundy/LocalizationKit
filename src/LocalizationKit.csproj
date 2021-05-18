@@ -12,15 +12,15 @@
         <RepositoryUrl>https://gitlab.com/aluminiumtechdevkit/LocalizationKit</RepositoryUrl>
         <RepositoryType>git</RepositoryType>
         <PackageReleaseNotes>### Changes
-* Fixed an issue with repo url in prior Nuget release.
-* Added more robustness to code with try/catch statements to help determine errors and issues.
-* Made changes to the variable relating to the Path to the json file for localizations.
-* Limited Support for SettingsKit 1.x.x series - Future versions will move towards SettingsKit 2.x.x .
-* Re-licensed the project under MIT to make things easier.</PackageReleaseNotes>
+* Removed unneeded direct dependencies
+* Added missing try/catch on method
+
+### Notes
+* LocalizationKit has Limited Support for SettingsKit 1.x.x series - Future versions will move towards SettingsKit 2.x.x .</PackageReleaseNotes>
         <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
-        <AssemblyVersion>1.1.0.0</AssemblyVersion>
-        <FileVersion>1.1.0.0</FileVersion>
-        <Version>1.1.0</Version>
+        <AssemblyVersion>1.1.1.0</AssemblyVersion>
+        <FileVersion>1.1.1.0</FileVersion>
+        <Version>1.1.1</Version>
         <PackageLicenseFile>LICENSE.md</PackageLicenseFile>
     </PropertyGroup>
 
