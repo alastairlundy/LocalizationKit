@@ -101,8 +101,16 @@ namespace AluminiumTech.LocalizationKit
         /// <param name="LOCALIZATION_DIRECTORY"></param>
         public void CreateLocalization(string LOCALE, string LOCALIZATION_DIRECTORY)
         {
-          KeyValuePair<string, string> localization = new KeyValuePair<string, string>(LOCALE, LOCALIZATION_DIRECTORY);
-          Add(localization);
+            try
+            {
+                KeyValuePair<string, string> localization = new KeyValuePair<string, string>(LOCALE, LOCALIZATION_DIRECTORY);
+                Add(localization);
+            }
+            catch(Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+                throw new Exception(ex.ToString());
+            }
         }
         
         /// <summary>
@@ -111,16 +119,24 @@ namespace AluminiumTech.LocalizationKit
         /// <param name="LOCALE"></param>
         public void RemoveLocalization(string LOCALE)
         {
-            KeyValuePair<string, string> localizationToBeRemoved;
-            foreach (KeyValuePair<string, string> localizations in this)
+            try
             {
-                if (localizations.Key.Equals(LOCALE))
+                KeyValuePair<string, string> localizationToBeRemoved;
+                foreach (KeyValuePair<string, string> localizations in this)
                 {
-                    localizationToBeRemoved = new KeyValuePair<string, string>(localizations.Key, localizations.Value);
+                    if (localizations.Key.Equals(LOCALE))
+                    {
+                        localizationToBeRemoved = new KeyValuePair<string, string>(localizations.Key, localizations.Value);
+                    }
                 }
+
+                this.Remove(localizationToBeRemoved);
             }
-            
-            this.Remove(localizationToBeRemoved);
+            catch(Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+                throw new Exception(ex.ToString());
+            }
         }
     }
 }
