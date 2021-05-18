@@ -21,15 +21,29 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
  */
 
-using AluminiumTech.SettingsKit.Base;
+using AluminiumTech.DevKit.SettingsKit.Base;
 
 namespace AluminiumTech.LocalizationKit{
     /// <summary>
     /// A class to represent a Localization
     /// </summary>
-    public class Localization : Preferences<string, string>
+    public class Localization
     {
         public string LOCALE_CODE { get; set; }
-        public string LANGUAGE {get; set;}
+        public string LANGUAGE { get; set; }
+
+        public Preferences<string, string> Preferences{ get; set;}
+
+        /// <summary>
+        /// Temporary scaffolding to make transitioning from V1 easier.
+        /// </summary>
+        public Preferences<string, string> GetPreferences() => Preferences;
+
+        public Localization()
+        {
+            LOCALE_CODE = "";
+            LANGUAGE = "";
+            Preferences = new Preferences<string, string>();
+        }
     }
 }
