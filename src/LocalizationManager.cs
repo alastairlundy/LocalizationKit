@@ -24,27 +24,16 @@ SOFTWARE.
 using System;
 using System.Collections.Generic;
 
-using AluminiumTech.SettingsKit;
-using AluminiumTech.SettingsKit.Base;
+using AluminiumTech.DevKit.SettingsKit;
+using AluminiumTech.DevKit.SettingsKit.Base;
 
 namespace AluminiumTech.LocalizationKit
 {
     /// <summary>
     /// A class to manage Localizations
     /// </summary>
-    public class LocalizationManager : Preferences<string, string> 
-    {
-        
-        /// <summary>
-        /// Get the array of Localizations
-        /// </summary>
-        /// <param name="LOCALES"></param>
-        /// <returns></returns>
-        public Localization[] ToLocalizationArray(string[] LOCALES)
-        {
-            return ToLocalizationList(LOCALES).ToArray();
-        }
-        
+    public class LocalizationManager : Preferences<string, string> {    
+       
         /// <summary>
         /// Get the list of Localizations
         /// </summary>
@@ -52,13 +41,21 @@ namespace AluminiumTech.LocalizationKit
         /// <returns></returns>
         public List<Localization> ToLocalizationList(string[] LOCALES)
         {
-            List<Localization> localizations = new List<Localization>();
-            for (int index = 0; index < this.Count; index++)
+            try
             {
-                localizations.Add(GetLocalization(LOCALES[index]));
-            }
+                List<Localization> localizations = new List<Localization>();
+                for (int index = 0; index < this.Count; index++)
+                {
+                    localizations.Add(GetLocalization(LOCALES[index]));
+                }
 
-            return localizations;
+                return localizations;
+            }
+            catch(Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+                throw new Exception(ex.ToString());
+            }
         }
         
         /// <summary>
@@ -83,8 +80,11 @@ namespace AluminiumTech.LocalizationKit
                     index++;
                 }
 
-                PreferencesReader<string, string> reader = new PreferencesReader<string, string>(preference.Value);
-                return reader.GetPreferences() as Localization;
+                PreferencesReader<string, string> reader = new PreferencesReader<string, string>();
+                var localization = new Localization();
+
+                localization.Preferences = reader.GetPreferences(preference.Value);
+                return localization;
             }
             catch(Exception ex)
             {
