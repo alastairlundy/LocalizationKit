@@ -27,15 +27,18 @@ namespace AluminiumTech.LocalizationKit{
     /// <summary>
     /// A class to represent a Localization
     /// </summary>
-    public class Localization
-    {
+    public class Localization{
+
         public string LOCALE_CODE { get; set; }
         public string LANGUAGE { get; set; }
+
+        public string PathToJsonFile { get; set; }
 
         public Preferences<string, string> Preferences{ get; set;}
 
         /// <summary>
         /// Temporary scaffolding to make transitioning from V1 easier.
+        /// This will be removed in a future 2.x or 3.x release
         /// </summary>
         public Preferences<string, string> GetPreferences() => Preferences;
 
@@ -43,6 +46,7 @@ namespace AluminiumTech.LocalizationKit{
         {
             LOCALE_CODE = "";
             LANGUAGE = "";
+            PathToJsonFile = "";
             Preferences = new Preferences<string, string>();
         }
     }
