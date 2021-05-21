@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
     <PropertyGroup>
         <TargetFramework>netstandard2.0</TargetFramework>
@@ -12,15 +12,18 @@
         <RepositoryUrl>https://gitlab.com/aluminiumtechdevkit/LocalizationKit</RepositoryUrl>
         <RepositoryType>git</RepositoryType>
         <PackageReleaseNotes>### Changes
-* Removed unneeded direct dependencies
-* Added missing try/catch on method
-
-### Notes
-* LocalizationKit has Limited Support for SettingsKit 1.x.x series - Future versions will move towards SettingsKit 2.x.x .</PackageReleaseNotes>
+* Updated to SettingsKit 2.0.0 from SettingsKit 1.2.0
+* Made changes to support upgrading SettingsKit to 2.0.0
+* Added some temporary scaffolding to assist migration from Localization Kit 1.x.x series to 2.x.x series - This will be removed in a future version.
+* Added the ability to store path to Json file in the Localization class.
+* Removed some outdated methods.
+* Made accessing localizations from the manager class easier.
+* Minor robustness and stability improvements.
+* Moved namespace to AluminiumTech.DevKit.LocalizationKit</PackageReleaseNotes>
         <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
-        <AssemblyVersion>1.1.1.0</AssemblyVersion>
-        <FileVersion>1.1.1.0</FileVersion>
-        <Version>1.1.1</Version>
+        <AssemblyVersion>2.0.0.0</AssemblyVersion>
+        <FileVersion>2.0.0.0</FileVersion>
+        <Version>2.0.0</Version>
         <PackageLicenseFile>LICENSE.md</PackageLicenseFile>
     </PropertyGroup>
 
