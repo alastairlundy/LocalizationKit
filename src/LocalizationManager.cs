@@ -39,14 +39,14 @@ namespace AluminiumTech.LocalizationKit
         /// </summary>
         /// <param name="LOCALES"></param>
         /// <returns></returns>
-        public List<Localization> ToLocalizationList(string[] LOCALES)
+        public List<Localization> ToLocalizationList()
         {
             try
             {
                 List<Localization> localizations = new List<Localization>();
                 for (int index = 0; index < this.Count; index++)
                 {
-                    localizations.Add(GetLocalization(LOCALES[index]));
+                    localizations.Add(GetLocalization(this[GetPosition(this[index].Key)].Key));
                 }
 
                 return localizations;
