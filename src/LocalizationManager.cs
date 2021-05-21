@@ -27,8 +27,7 @@ using System.Collections.Generic;
 using AluminiumTech.DevKit.SettingsKit;
 using AluminiumTech.DevKit.SettingsKit.Base;
 
-namespace AluminiumTech.LocalizationKit
-{
+namespace AluminiumTech.LocalizationKit{
     /// <summary>
     /// A class to manage Localizations
     /// </summary>
@@ -127,7 +126,7 @@ namespace AluminiumTech.LocalizationKit
                 KeyValuePair<string, string> localizationToBeRemoved;
                 foreach (KeyValuePair<string, string> localizations in this)
                 {
-                    if (localizations.Key.Equals(LOCALE))
+                    if (localizations.Key.ToLower().Equals(LOCALE.ToLower()))
                     {
                         localizationToBeRemoved = new KeyValuePair<string, string>(localizations.Key, localizations.Value);
                     }
