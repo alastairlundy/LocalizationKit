@@ -67,14 +67,16 @@ namespace AluminiumTech.LocalizationKit
         {
             try
             {
-                KeyValuePair<string, string> preference;
+                KeyValuePair<string, string> preference = new KeyValuePair<string, string>();
+                string pathToJson = "";
 
                 int index = 0;
                 foreach (KeyValuePair<string, string> pairs in this)
                 {
-                    if (pairs.Key.Equals(LOCALE))
+                    if (pairs.Key.ToLower().Equals(LOCALE.ToLower()))
                     {
                         preference = this[index];
+                        pathToJson = this[index].Value;
                     }
 
                     index++;
@@ -84,6 +86,8 @@ namespace AluminiumTech.LocalizationKit
                 var localization = new Localization();
 
                 localization.Preferences = reader.GetPreferences(preference.Value);
+                localization.PathToJsonFile = pathToJson;
+                localization.LOCALE_CODE = preference.Key;
                 return localization;
             }
             catch(Exception ex)
