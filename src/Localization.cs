@@ -23,7 +23,7 @@ SOFTWARE.
 
 using AluminiumTech.DevKit.SettingsKit.Base;
 
-namespace AluminiumTech.LocalizationKit{
+namespace AluminiumTech.DevKit.LocalizationKit{
     /// <summary>
     /// A class to represent a Localization
     /// </summary>

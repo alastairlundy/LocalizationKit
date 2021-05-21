@@ -27,7 +27,7 @@ using System.Collections.Generic;
 using AluminiumTech.DevKit.SettingsKit;
 using AluminiumTech.DevKit.SettingsKit.Base;
 
-namespace AluminiumTech.LocalizationKit{
+namespace AluminiumTech.DevKit.LocalizationKit{
     /// <summary>
     /// A class to manage Localizations
     /// </summary>
