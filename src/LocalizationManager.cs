@@ -60,9 +60,9 @@ namespace AluminiumTech.DevKit.LocalizationKit{
         /// <summary>
         /// Get the localization
         /// </summary>
-        /// <param name="LOCALE"></param>
+        /// <param name="locale"></param>
         /// <returns></returns>
-        public Localization GetLocalization(string LOCALE)
+        public Localization GetLocalization(string locale)
         {
             try
             {
@@ -72,7 +72,7 @@ namespace AluminiumTech.DevKit.LocalizationKit{
                 int index = 0;
                 foreach (KeyValuePair<string, string> pairs in this)
                 {
-                    if (pairs.Key.ToLower().Equals(LOCALE.ToLower()))
+                    if (pairs.Key.ToLower().Equals(locale.ToLower()))
                     {
                         preference = this[index];
                         pathToJson = this[index].Value;
@@ -99,13 +99,13 @@ namespace AluminiumTech.DevKit.LocalizationKit{
         /// <summary>
         /// Add localizations
         /// </summary>
-        /// <param name="LOCALE"></param>
-        /// <param name="LOCALIZATION_DIRECTORY"></param>
-        public void CreateLocalization(string LOCALE, string LOCALIZATION_DIRECTORY)
+        /// <param name="locale"></param>
+        /// <param name="localizationDirectory"></param>
+        public void CreateLocalization(string locale, string localizationDirectory)
         {
             try
             {
-                KeyValuePair<string, string> localization = new KeyValuePair<string, string>(LOCALE, LOCALIZATION_DIRECTORY);
+                KeyValuePair<string, string> localization = new KeyValuePair<string, string>(locale, localizationDirectory);
                 Add(localization);
             }
             catch(Exception ex)
@@ -118,15 +118,15 @@ namespace AluminiumTech.DevKit.LocalizationKit{
         /// <summary>
         /// Remove a localization
         /// </summary>
-        /// <param name="LOCALE"></param>
-        public void RemoveLocalization(string LOCALE)
+        /// <param name="locale"></param>
+        public void RemoveLocalization(string locale)
         {
             try
             {
                 KeyValuePair<string, string> localizationToBeRemoved;
                 foreach (KeyValuePair<string, string> localizations in this)
                 {
-                    if (localizations.Key.ToLower().Equals(LOCALE.ToLower()))
+                    if (localizations.Key.ToLower().Equals(locale.ToLower()))
                     {
                         localizationToBeRemoved = new KeyValuePair<string, string>(localizations.Key, localizations.Value);
                     }

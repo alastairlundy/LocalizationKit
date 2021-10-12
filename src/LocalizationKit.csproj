@@ -12,23 +12,17 @@
         <RepositoryUrl>https://gitlab.com/aluminiumtechdevkit/LocalizationKit</RepositoryUrl>
         <RepositoryType>git</RepositoryType>
         <PackageReleaseNotes>### Changes
-* Updated to SettingsKit 2.0.0 from SettingsKit 1.2.0
-* Made changes to support upgrading SettingsKit to 2.0.0
-* Added some temporary scaffolding to assist migration from Localization Kit 1.x.x series to 2.x.x series - This will be removed in a future version.
-* Added the ability to store path to Json file in the Localization class.
-* Removed some outdated methods.
-* Made accessing localizations from the manager class easier.
-* Minor robustness and stability improvements.
-* Moved namespace to AluminiumTech.DevKit.LocalizationKit</PackageReleaseNotes>
+* Updated SettingsKit from 2.0.0 to 2.0.1</PackageReleaseNotes>
         <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
         <AssemblyVersion>2.0.0.0</AssemblyVersion>
         <FileVersion>2.0.0.0</FileVersion>
         <Version>2.0.0</Version>
         <PackageLicenseFile>LICENSE.md</PackageLicenseFile>
+        <PackageVersion>2.0.1</PackageVersion>
     </PropertyGroup>
 
     <ItemGroup>
-      <PackageReference Include="SettingsKit" Version="2.0.0" />
+      <PackageReference Include="SettingsKit" Version="2.0.1" />
     </ItemGroup>
 
     <ItemGroup>

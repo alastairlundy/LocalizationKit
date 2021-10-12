@@ -38,7 +38,7 @@ namespace AluminiumTech.DevKit.LocalizationKit{
 
         /// <summary>
         /// Temporary scaffolding to make transitioning from V1 easier.
-        /// This will be removed in a future 2.x or 3.x release
+        /// This will be removed in a future 2.x release
         /// </summary>
         public Preferences<string, string> GetPreferences() => Preferences;
 
