@@ -21,124 +21,40 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
  */
 
-using System;
 using System.Collections.Generic;
 
 using AluminiumTech.DevKit.SettingsKit;
-using AluminiumTech.DevKit.SettingsKit.Base;
 
 namespace AluminiumTech.DevKit.LocalizationKit{
     /// <summary>
     /// A class to manage Localizations
     /// </summary>
-    public class LocalizationManager : Preferences<string, string> {    
-       
-        /// <summary>
-        /// Get the list of Localizations
-        /// </summary>
-        /// <param name="LOCALES"></param>
-        /// <returns></returns>
-        public List<Localization> ToLocalizationList()
-        {
-            try
-            {
-                List<Localization> localizations = new List<Localization>();
-                for (int index = 0; index < this.Count; index++)
-                {
-                    localizations.Add(GetLocalization(this[GetPosition(this[index].Key)].Key));
-                }
-
-                return localizations;
-            }
-            catch(Exception ex)
-            {
-                Console.WriteLine(ex.ToString());
-                throw new Exception(ex.ToString());
-            }
-        }
+    public class LocalizationManager
+    {
+        protected Dictionary<string, Localization> Localizations;
         
-        /// <summary>
-        /// Get the localization
-        /// </summary>
-        /// <param name="locale"></param>
-        /// <returns></returns>
+        public LocalizationManager()
+        {
+            Localizations = new Dictionary<string, Localization>();
+        }
+
+        public void LoadLocalization(string locale, string pathToLocalizationJsonFile)
+        {
+            var localization = new Localization(pathToLocalizationJsonFile, locale);
+            localization.PreferencesManager = new PreferencesManager<string, string>(pathToLocalizationJsonFile);
+            localization.PreferencesManager.LoadPreferences(pathToLocalizationJsonFile);   
+            
+            Localizations.Add(locale, localization);
+        }
+
         public Localization GetLocalization(string locale)
         {
-            try
-            {
-                KeyValuePair<string, string> preference = new KeyValuePair<string, string>();
-                string pathToJson = "";
-
-                int index = 0;
-                foreach (KeyValuePair<string, string> pairs in this)
-                {
-                    if (pairs.Key.ToLower().Equals(locale.ToLower()))
-                    {
-                        preference = this[index];
-                        pathToJson = this[index].Value;
-                    }
-
-                    index++;
-                }
-
-                PreferencesReader<string, string> reader = new PreferencesReader<string, string>();
-                var localization = new Localization();
-
-                localization.Preferences = reader.GetPreferences(preference.Value);
-                localization.PathToJsonFile = pathToJson;
-                localization.LOCALE_CODE = preference.Key;
-                return localization;
-            }
-            catch(Exception ex)
-            {
-                Console.WriteLine(ex.ToString());
-                throw new Exception(ex.ToString());
-            }
+            return Localizations[locale];
         }
-        
-        /// <summary>
-        /// Add localizations
-        /// </summary>
-        /// <param name="locale"></param>
-        /// <param name="localizationDirectory"></param>
-        public void CreateLocalization(string locale, string localizationDirectory)
-        {
-            try
-            {
-                KeyValuePair<string, string> localization = new KeyValuePair<string, string>(locale, localizationDirectory);
-                Add(localization);
-            }
-            catch(Exception ex)
-            {
-                Console.WriteLine(ex.ToString());
-                throw new Exception(ex.ToString());
-            }
-        }
-        
-        /// <summary>
-        /// Remove a localization
-        /// </summary>
-        /// <param name="locale"></param>
-        public void RemoveLocalization(string locale)
-        {
-            try
-            {
-                KeyValuePair<string, string> localizationToBeRemoved;
-                foreach (KeyValuePair<string, string> localizations in this)
-                {
-                    if (localizations.Key.ToLower().Equals(locale.ToLower()))
-                    {
-                        localizationToBeRemoved = new KeyValuePair<string, string>(localizations.Key, localizations.Value);
-                    }
-                }
 
-                this.Remove(localizationToBeRemoved);
-            }
-            catch(Exception ex)
-            {
-                Console.WriteLine(ex.ToString());
-                throw new Exception(ex.ToString());
-            }
+        public Preference<string, string> GetLocalizedPhrase(string locale, string key)
+        {
+            return Localizations[locale].GetLocalizedPhrase(key);
         }
     }
 }
