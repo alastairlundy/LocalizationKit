@@ -22,7 +22,7 @@
     </PropertyGroup>
 
     <ItemGroup>
-      <PackageReference Include="SettingsKit" Version="2.0.1" />
+      <PackageReference Include="SettingsKit" Version="3.0.0" />
     </ItemGroup>
 
     <ItemGroup>
@@ -31,6 +31,15 @@
         <PackagePath></PackagePath>
         <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       </None>
+      <None Remove="LocalizationKitTest\**" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Compile Remove="LocalizationKitTest\**" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <EmbeddedResource Remove="LocalizationKitTest\**" />
     </ItemGroup>
 
 </Project>
