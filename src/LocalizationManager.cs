@@ -1,6 +1,6 @@
 /* MIT License
 
-Copyright (c) 2021 AluminiumTech DevKit
+Copyright (c) 2020-2021 AluminiumTech DevKit
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -55,6 +55,11 @@ namespace AluminiumTech.DevKit.LocalizationKit{
         public Preference<string, string> GetLocalizedPhrase(string locale, string key)
         {
             return Localizations[locale].GetLocalizedPhrase(key);
+        }
+
+        public Dictionary<string, Localization> ToLocalizations()
+        {
+            return Localizations;
         }
     }
 }
