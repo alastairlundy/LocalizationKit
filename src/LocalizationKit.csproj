@@ -10,12 +10,15 @@
         <PackageLicenseUrl></PackageLicenseUrl>
         <RepositoryUrl>https://gitlab.com/aluminiumtechdevkit/LocalizationKit</RepositoryUrl>
         <RepositoryType>git</RepositoryType>
-        <PackageReleaseNotes></PackageReleaseNotes>
+        <PackageReleaseNotes>## Changes
+* Updated SettingsKit from 2.0.1 to 3.0.0 - This brings major changes in compatibility, stability, and addresses/reduces technical debt and issues in 2.0
+* Adjusted LocalizationKit classes to work with the updated SettingsKit.
+* Added readme to Nuget package</PackageReleaseNotes>
         <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
         <AssemblyVersion>3.0.0.0</AssemblyVersion>
         <FileVersion>3.0.0.0</FileVersion>
-        <Version>3.0</Version>
-        <PackageVersion>3.0</PackageVersion>
+        <Version>3.0.0</Version>
+        <PackageVersion>3.0.0</PackageVersion>
         <PackageLicenseFile>LICENSE.md</PackageLicenseFile>
         <TargetFrameworks>net5.0;netcoreapp3.1;netstandard2.0</TargetFrameworks>
         <LangVersion>default</LangVersion>
