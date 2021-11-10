@@ -7,26 +7,24 @@
         <Authors>AluminiumTech</Authors>
         <Description>Make Localizations in .NET easy and less painful. </Description>
         <Copyright>Copyright (c) 2021</Copyright>
-        <PackageLicenseUrl></PackageLicenseUrl>
         <RepositoryUrl>https://gitlab.com/aluminiumtechdevkit/LocalizationKit</RepositoryUrl>
         <RepositoryType>git</RepositoryType>
-        <PackageReleaseNotes>## Changes
-* Updated SettingsKit from 2.0.1 to 3.0.0 - This brings major changes in compatibility, stability, and addresses/reduces technical debt and issues in 2.0
-* Adjusted LocalizationKit classes to work with the updated SettingsKit.
-* Added readme to Nuget package</PackageReleaseNotes>
+        <PackageReleaseNotes>### Changes
+* Updated SettingsKit dep from 3.0.0 to 3.1.0
+* Updated code in LocalizationKit to be compatible with SettingsKit 3.1.0</PackageReleaseNotes>
         <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
-        <AssemblyVersion>3.0.0.0</AssemblyVersion>
-        <FileVersion>3.0.0.0</FileVersion>
-        <Version>3.0.0</Version>
-        <PackageVersion>3.0.0</PackageVersion>
+        <AssemblyVersion>3.1.0.0</AssemblyVersion>
+        <FileVersion>3.1.0.0</FileVersion>
+        <Version>3.1.0</Version>
+        <PackageVersion>3.1.0</PackageVersion>
         <PackageLicenseFile>LICENSE.md</PackageLicenseFile>
-        <TargetFrameworks>net5.0;netcoreapp3.1;netstandard2.0</TargetFrameworks>
+        <TargetFrameworks>net5.0;net6.0;netcoreapp3.1;netstandard2.0</TargetFrameworks>
         <LangVersion>default</LangVersion>
         <PackageReadmeFile>README.md</PackageReadmeFile>
     </PropertyGroup>
 
     <ItemGroup>
-      <PackageReference Include="SettingsKit" Version="3.0.0" />
+      <PackageReference Include="SettingsKit" Version="3.1.0" />
     </ItemGroup>
 
     <ItemGroup>

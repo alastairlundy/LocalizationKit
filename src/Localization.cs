@@ -46,7 +46,7 @@ namespace AluminiumTech.DevKit.LocalizationKit{
             PreferencesManager = new PreferencesManager<string, string>(pathToJsonFile);
         }
 
-        public Preference<string, string> GetLocalizedPhrase(string key)
+        public KeyValueDataStore<string, string> GetLocalizedPhrase(string key)
         {
             return PreferencesManager.GetPreference(key);
         }

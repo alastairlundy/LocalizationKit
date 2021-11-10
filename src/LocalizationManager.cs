@@ -40,8 +40,11 @@ namespace AluminiumTech.DevKit.LocalizationKit{
 
         public void LoadLocalization(string locale, string pathToLocalizationJsonFile)
         {
-            var localization = new Localization(pathToLocalizationJsonFile, locale);
-            localization.PreferencesManager = new PreferencesManager<string, string>(pathToLocalizationJsonFile);
+            var localization = new Localization(pathToLocalizationJsonFile, locale)
+            {
+                PreferencesManager = new PreferencesManager<string, string>(pathToLocalizationJsonFile)
+            };
+            
             localization.PreferencesManager.LoadPreferences(pathToLocalizationJsonFile);   
             
             Localizations.Add(locale, localization);
@@ -52,11 +55,21 @@ namespace AluminiumTech.DevKit.LocalizationKit{
             return Localizations[locale];
         }
 
-        public Preference<string, string> GetLocalizedPhrase(string locale, string key)
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="locale"></param>
+        /// <param name="key"></param>
+        /// <returns></returns>
+        public KeyValueDataStore<string, string> GetLocalizedPhrase(string locale, string key)
         {
             return Localizations[locale].GetLocalizedPhrase(key);
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
         public Dictionary<string, Localization> ToLocalizations()
         {
             return Localizations;
