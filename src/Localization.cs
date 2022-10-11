@@ -21,6 +21,7 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
  */
 
+using System.Collections.Generic;
 using AluminiumTech.DevKit.SettingsKit;
 
 namespace AluminiumTech.DevKit.LocalizationKit{
@@ -34,21 +35,30 @@ namespace AluminiumTech.DevKit.LocalizationKit{
 
         public string PathToLocalizationJsonFile { get; set; }
 
-        public PreferencesManager<string, string> PreferencesManager { get; set; }
+        public SettingsManager<string, string> Translations { get; set; }
 
-
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="pathToJsonFile"></param>
+        /// <param name="localeCode"></param>
         public Localization(string pathToJsonFile, string localeCode)
         {
             LocaleCode = localeCode;
             Language = "";
             PathToLocalizationJsonFile = pathToJsonFile;
 
-            PreferencesManager = new PreferencesManager<string, string>(pathToJsonFile);
+            Translations = new SettingsManager<string, string>(pathToJsonFile);
         }
-
-        public KeyValueDataStore<string, string> GetLocalizedPhrase(string key)
+    
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="key"></param>
+        /// <returns></returns>
+        public KeyValuePair<string, string> GetLocalizedPhrase(string key)
         {
-            return PreferencesManager.GetPreference(key);
+            return Translations.Get(key);
         }
     }
 }

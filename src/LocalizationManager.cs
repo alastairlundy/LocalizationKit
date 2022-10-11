@@ -37,19 +37,29 @@ namespace AluminiumTech.DevKit.LocalizationKit{
         {
             Localizations = new Dictionary<string, Localization>();
         }
-
+        
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="locale"></param>
+        /// <param name="pathToLocalizationJsonFile"></param>
         public void LoadLocalization(string locale, string pathToLocalizationJsonFile)
         {
             var localization = new Localization(pathToLocalizationJsonFile, locale)
             {
-                PreferencesManager = new PreferencesManager<string, string>(pathToLocalizationJsonFile)
+                Translations = new SettingsManager<string, string>(pathToLocalizationJsonFile)
             };
             
-            localization.PreferencesManager.LoadPreferences(pathToLocalizationJsonFile);   
+            localization.Translations.LoadJson(pathToLocalizationJsonFile);   
             
             Localizations.Add(locale, localization);
         }
-
+    
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="locale"></param>
+        /// <returns></returns>
         public Localization GetLocalization(string locale)
         {
             return Localizations[locale];
@@ -61,7 +71,7 @@ namespace AluminiumTech.DevKit.LocalizationKit{
         /// <param name="locale"></param>
         /// <param name="key"></param>
         /// <returns></returns>
-        public KeyValueDataStore<string, string> GetLocalizedPhrase(string locale, string key)
+        public KeyValuePair<string, string> GetLocalizedPhrase(string locale, string key)
         {
             return Localizations[locale].GetLocalizedPhrase(key);
         }
