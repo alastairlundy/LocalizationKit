@@ -22,7 +22,8 @@ SOFTWARE.
  */
 
 using System.Collections.Generic;
-using AluminiumTech.DevKit.SettingsKit;
+
+using AlastairLundy.SettingsKit.Interfaces;
 
 namespace AlastairLundy.LocalizationKit{
     /// <summary>
@@ -42,14 +43,14 @@ namespace AlastairLundy.LocalizationKit{
         /// </summary>
         /// <param name="locale"></param>
         /// <param name="pathToLocalizationJsonFile"></param>
-        public void LoadLocalization(string locale, string pathToLocalizationJsonFile)
+        public void LoadLocalization(string locale, string pathToLocalizationJsonFile, ISettingsProvider<string, string> settingsProvider)
         {
-            var localization = new Localization(pathToLocalizationJsonFile, locale)
+            var localization = new Localization(pathToLocalizationJsonFile, locale, settingsProvider)
             {
-                Translations = new SettingsManager<string, string>(pathToLocalizationJsonFile)
+                Translations = settingsProvider
             };
             
-            localization.Translations.LoadJson(pathToLocalizationJsonFile);   
+            localization.Translations.Get(pathToLocalizationJsonFile);   
             
             Localizations.Add(locale, localization);
         }
