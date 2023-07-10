@@ -5,7 +5,7 @@ LocalizationKit is a library designed to make managing localizations in .NET eas
 
 ## Licensing
 
-LocalizationKit, which is MIT licensed, relies on [SettingsKit](https://gitlab.com/aluminiumtechdevkit/SettingsKit) to manage Localizations stored in files and allow developers to get localized strings for use in their applications.
+LocalizationKit, which is MIT licensed, relies on [SettingsKit](https://github.com/alastairlundy/SettingsKit) to manage Localizations stored in files and allow developers to get localized strings for use in their applications.
 
 SettingsKit is also MIT licensed and is also made by me.
 
