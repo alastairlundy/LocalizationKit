@@ -22,7 +22,9 @@ SOFTWARE.
  */
 
 using System.Collections.Generic;
-using AluminiumTech.DevKit.SettingsKit;
+
+using AlastairLundy.SettingsKit;
+using AlastairLundy.SettingsKit.Interfaces;
 
 namespace AlastairLundy.LocalizationKit{
     /// <summary>
@@ -35,20 +37,20 @@ namespace AlastairLundy.LocalizationKit{
 
         public string PathToLocalizationJsonFile { get; set; }
 
-        public SettingsManager<string, string> Translations { get; set; }
+        public ISettingsProvider<string, string> Translations { get; set; }
 
         /// <summary>
         /// 
         /// </summary>
         /// <param name="pathToJsonFile"></param>
         /// <param name="localeCode"></param>
-        public Localization(string pathToJsonFile, string localeCode)
+        public Localization(string pathToJsonFile, string localeCode, ISettingsProvider<string, string> settingsProvider)
         {
             LocaleCode = localeCode;
             Language = "";
             PathToLocalizationJsonFile = pathToJsonFile;
 
-            Translations = new SettingsManager<string, string>(pathToJsonFile);
+            Translations = settingsProvider;
         }
     
         /// <summary>
@@ -58,7 +60,7 @@ namespace AlastairLundy.LocalizationKit{
         /// <returns></returns>
         public KeyValuePair<string, string> GetLocalizedPhrase(string key)
         {
-            return Translations.Get(key);
+            return new SettingsManager<string, string>().GetKeyValuePair(Translations.Get(PathToLocalizationJsonFile), key);
         }
     }
 }
