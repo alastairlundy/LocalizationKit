@@ -16,4 +16,4 @@ The main differences between LocalizationKit and SettingsKit, besides SettingsKi
 In the future I _may_ create a tool to generate localization files for use with LocalizationKit and/or SettingsKit.
 
 ## Roadmap
-As this project relies on SettingsKit, the roadmap of LocalizationKit will more or less track [that of SettingsKit](https://gitlab.com/aluminiumtechdevkit/SettingsKit/-/blob/master/Roadmap.md) with some differences for localization specific things.
+As this project relies on SettingsKit, the roadmap of LocalizationKit will more or less track [that of SettingsKit](https://github.com/alastairlundy/SettingsKit/blob/master/Roadmap.md) with some differences for localization specific things.
