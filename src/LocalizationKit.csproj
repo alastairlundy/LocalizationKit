@@ -4,19 +4,17 @@
         <RootNamespace>AlastairLundy.LocalizationKit</RootNamespace>
         <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
         <Title>LocalizationKit</Title>
-        <Authors>AluminiumTech</Authors>
+        <Authors>AlastairLundy</Authors>
         <Description>Make Localizations in .NET easy and less painful. </Description>
-        <Copyright>Copyright (c) 2021-2022</Copyright>
-        <RepositoryUrl>https://gitlab.com/aluminiumtechdevkit/LocalizationKit</RepositoryUrl>
+        <Copyright>Copyright (c) 2021-2023</Copyright>
+        <RepositoryUrl>https://github.com/alastairlundy/LocalizationKit</RepositoryUrl>
         <RepositoryType>git</RepositoryType>
-        <PackageReleaseNotes>### Changes since 3.1.0
-* Updated SettingsKit from 3.1.0 to 4.0.0
-* Updated code in LocalizationKit to be compatible with SettingsKit 4.0.0</PackageReleaseNotes>
+        <PackageReleaseNotes></PackageReleaseNotes>
         <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
         <AssemblyVersion>4.0.0.0</AssemblyVersion>
         <FileVersion>4.0.0.0</FileVersion>
         <Version>4.0.0</Version>
-        <PackageVersion>4.0.0</PackageVersion>
+        <PackageVersion>5.0.0</PackageVersion>
         <PackageLicenseFile>LICENSE.md</PackageLicenseFile>
         <LangVersion>default</LangVersion>
         <PackageReadmeFile>README.md</PackageReadmeFile>
