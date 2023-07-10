@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
     <PropertyGroup>
-        <RootNamespace>AluminiumTech.DevKit.LocalizationKit</RootNamespace>
+        <RootNamespace>AlastairLundy.LocalizationKit</RootNamespace>
         <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
         <Title>LocalizationKit</Title>
         <Authors>AluminiumTech</Authors>

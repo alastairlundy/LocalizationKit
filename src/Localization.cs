@@ -24,7 +24,7 @@ SOFTWARE.
 using System.Collections.Generic;
 using AluminiumTech.DevKit.SettingsKit;
 
-namespace AluminiumTech.DevKit.LocalizationKit{
+namespace AlastairLundy.LocalizationKit{
     /// <summary>
     /// A class to represent a Localization
     /// </summary>
