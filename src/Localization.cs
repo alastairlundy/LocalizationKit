@@ -37,7 +37,9 @@ namespace AlastairLundy.LocalizationKit{
 
         public string PathToLocalizationFile { get; set; }
 
-        public ISettingsProvider<string, string> Translations { get; set; }
+                
+        
+        public KeyValuePair<string, string>[] Translations { get; set; }
 
         /// <summary>
         /// 
