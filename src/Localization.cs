@@ -63,7 +63,7 @@ namespace AlastairLundy.LocalizationKit{
         /// <returns></returns>
         public KeyValuePair<string, string> GetLocalizedPhrase(string key)
         {
-            return new SettingsManager<string, string>().GetKeyValuePair(Translations.Get(PathToLocalizationJsonFile), key);
+            return new SettingsManager<string, string>().GetKeyValuePair(Translations, key);
         }
     }
 }
