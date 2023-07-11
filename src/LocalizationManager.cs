@@ -75,7 +75,7 @@ namespace AlastairLundy.LocalizationKit{
         }
 
         /// <summary>
-        /// 
+        /// Return all localizations as a Dictionary.
         /// </summary>
         /// <returns></returns>
         public Dictionary<string, Localization> ToLocalizations()
