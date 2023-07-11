@@ -11,7 +11,7 @@ SettingsKit is also MIT licensed and is also made by me.
 
 ## Differences between LocalizationKit and SettingsKit
 
-The main differences between LocalizationKit and SettingsKit, besides SettingsKit being meant for generic Settings management, is that Localizationkit is not designed to allow creating localizations. It's primarily intended to load existing localization files and provide programmatic access to the localizations. 
+The main differences between LocalizationKit and SettingsKit, besides SettingsKit being meant for generic Settings management, is that Localizationkit is designed to load existing localization files and provide programmatic access to the localizations. 
 
 In the future I _may_ create a tool to generate localization files for use with LocalizationKit and/or SettingsKit.
 
