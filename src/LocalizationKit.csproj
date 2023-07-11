@@ -19,7 +19,7 @@
         <AssemblyVersion>5.0.0.0</AssemblyVersion>
         <FileVersion>5.0.0.0</FileVersion>
         <Version>5.0.0</Version>
-        <PackageVersion>5.0.0</PackageVersion>
+        <PackageVersion>5.0.0-rc.1</PackageVersion>
         <PackageLicenseFile>LICENSE.md</PackageLicenseFile>
         <LangVersion>default</LangVersion>
         <PackageReadmeFile>README.md</PackageReadmeFile>
