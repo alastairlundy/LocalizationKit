@@ -2,6 +2,8 @@
 
 LocalizationKit is a library designed to make managing localizations in .NET easier.
 
+[![NuGet](https://img.shields.io/nuget/v/LocalizationKit.svg)](https://www.nuget.org/packages/LocalizationKit/)
+[![NuGet](https://img.shields.io/nuget/dt/LocalizationKit.svg)](https://www.nuget.org/packages/LocalizationKit/)
 
 ## Licensing
 
