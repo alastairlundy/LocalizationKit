@@ -39,11 +39,12 @@ namespace AlastairLundy.LocalizationKit{
         }
         
         /// <summary>
-        /// 
+        /// Load localizations from a file using an ISettings Provider
         /// </summary>
-        /// <param name="locale"></param>
-        /// <param name="pathToLocalizationJsonFile"></param>
-        public void LoadLocalization(string locale, string pathToLocalizationJsonFile, ISettingsProvider<string, string> settingsProvider)
+        /// <param name="locale">The locale of the localization to add</param>
+        /// <param name="pathToLocalizationFile">The path to the localization file.</param>
+        /// <param name="settingsProvider">The provider to use</param>
+        public void LoadLocalization(string locale, string pathToLocalizationFile, ISettingsProvider<string, string> settingsProvider)
         {
             var localization = new Localization(pathToLocalizationJsonFile, locale, settingsProvider)
             {
@@ -56,7 +57,7 @@ namespace AlastairLundy.LocalizationKit{
         }
     
         /// <summary>
-        /// 
+        /// Returns the localization associated with a specified locale.
         /// </summary>
         /// <param name="locale"></param>
         /// <returns></returns>
@@ -66,7 +67,7 @@ namespace AlastairLundy.LocalizationKit{
         }
 
         /// <summary>
-        /// 
+        /// Returns a localized phrase from a localization associated with a specified locale and key.
         /// </summary>
         /// <param name="locale"></param>
         /// <param name="key"></param>
