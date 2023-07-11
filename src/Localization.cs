@@ -35,22 +35,23 @@ namespace AlastairLundy.LocalizationKit{
         public string LocaleCode { get; set; }
         public string Language { get; set; }
 
-        public string PathToLocalizationJsonFile { get; set; }
+        public string PathToLocalizationFile { get; set; }
 
         public ISettingsProvider<string, string> Translations { get; set; }
 
         /// <summary>
         /// 
         /// </summary>
-        /// <param name="pathToJsonFile"></param>
+        /// <param name="pathToFile"></param>
         /// <param name="localeCode"></param>
-        public Localization(string pathToJsonFile, string localeCode, ISettingsProvider<string, string> settingsProvider)
+        /// <param name="settingsProvider"></param>
+        public Localization(string pathToFile, string localeCode, ISettingsProvider<string, string> settingsProvider)
         {
             LocaleCode = localeCode;
             Language = "";
-            PathToLocalizationJsonFile = pathToJsonFile;
+            PathToLocalizationFile = pathToFile;
 
-            Translations = settingsProvider;
+            Translations = settingsProvider.Get(pathToFile);
         }
     
         /// <summary>
