@@ -5,7 +5,10 @@ using AlastairLundy.SettingsKit;
 
 LocalizationManager localizationManager = new LocalizationManager();
 
-localizationManager.LoadLocalization("en_us", Environment.CurrentDirectory + Path.DirectorySeparatorChar + "locales" + Path.DirectorySeparatorChar + "en_us.json", new JsonSettingsProvider<string, string>());
+string path = Environment.CurrentDirectory + Path.DirectorySeparatorChar + "testing" + Path.DirectorySeparatorChar +
+              "en_us.json";
+
+localizationManager.LoadLocalization("en_us", path, new JsonSettingsProvider<string, string>());
 
 var localization = localizationManager.GetLocalization("en_us");
 
