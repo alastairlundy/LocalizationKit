@@ -1,7 +1,7 @@
 ﻿// See https://aka.ms/new-console-template for more information
 
 using AlastairLundy.LocalizationKit;
-using AlastairLundy.SettingsKit;
+using AlastairLundy.SettingsKit.Providers;
 
 LocalizationManager localizationManager = new LocalizationManager();
 
