@@ -32,8 +32,6 @@ namespace AlastairLundy.LocalizationKit{
     public class Localization {
 
         public string LocaleCode { get; set; }
-        public string Language { get; set; }
-
         public string PathToLocalizationFile { get; set; }
 
                 
@@ -49,7 +47,6 @@ namespace AlastairLundy.LocalizationKit{
         public Localization(string pathToFile, string localeCode, ISettingsProvider<string, string> settingsProvider)
         {
             LocaleCode = localeCode;
-            Language = "";
             PathToLocalizationFile = pathToFile;
 
             Translations = settingsProvider.Get(pathToFile);
