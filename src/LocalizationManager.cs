@@ -46,7 +46,7 @@ namespace AlastairLundy.LocalizationKit{
         public void LoadLocalization(string locale, string pathToLocalizationFile, ISettingsProvider<string, string> settingsProvider)
         {
             //Localization loading now happens in the Localization constructor.
-            var localization = new Localization(pathToLocalizationFile, locale, settingsProvider);
+            Localization localization = new Localization(pathToLocalizationFile, locale, settingsProvider);
 
             //Add the localization to the localizations list.
             Localizations.Add(locale, localization);
