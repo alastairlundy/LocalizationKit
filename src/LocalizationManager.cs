@@ -53,13 +53,15 @@ namespace AlastairLundy.LocalizationKit{
         /// <param name="settingsProvider">The provider to use</param>
         public void LoadLocalization(string locale, string pathToLocalizationFile, ISettingsProvider<string, string> settingsProvider)
         {
-            //Localization loading now happens in the Localization constructor.
-            Localization localization = new Localization(pathToLocalizationFile, locale, settingsProvider);
             // Ensure all locales are stored in lowercase so that case sensitivity is not an issue.
             if (!IsCaseSensitive)
             {
                 locale = locale.ToLower();
             }
+            
+            Localization localization = new Localization(pathToLocalizationFile, locale);
+            
+            localization.Load(settingsProvider);
 
             //Add the localization to the localizations list.
             Localizations.Add(locale, localization);
