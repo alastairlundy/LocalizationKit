@@ -36,8 +36,6 @@ namespace AlastairLundy.LocalizationKit{
         public string LocaleCode { get; set; }
         public string PathToLocalizationFile { get; set; }
 
-                
-        
         public KeyValuePair<string, string>[] Translations { get; set; }
 
         internal SettingsManager<string, string> _settingsManager;
