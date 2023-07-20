@@ -9,14 +9,16 @@
         <Copyright>Copyright (c) 2021-2023</Copyright>
         <RepositoryUrl>https://github.com/alastairlundy/LocalizationKit</RepositoryUrl>
         <RepositoryType>git</RepositoryType>
-        <PackageReleaseNotes>### Changes since 5.0.0 RC 2
-* Updated SettingsKit Dependency from 5.0.0 Alpha 3 to 5.0.0 Beta 1
-* Updated internal code to reflect changes.</PackageReleaseNotes>
+        <PackageReleaseNotes>### Changes since 4.0.0
+* Updated SettingsKit dependency from 4.0.0 to 5.0.0
+* Changed paramater names,
+* Changed the Translations object to be of type KeyValuePair&lt;string, string&gt; .
+* Added some in code comments</PackageReleaseNotes>
         <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
         <AssemblyVersion>5.0.0.0</AssemblyVersion>
         <FileVersion>5.0.0.0</FileVersion>
         <Version>5.0.0</Version>
-        <PackageVersion>5.0.0-rc.3</PackageVersion>
+        <PackageVersion>5.0.0</PackageVersion>
         <PackageLicenseFile>LICENSE.md</PackageLicenseFile>
         <LangVersion>default</LangVersion>
         <PackageReadmeFile>README.md</PackageReadmeFile>
@@ -42,7 +44,7 @@
     </ItemGroup>
 
     <ItemGroup Condition="'$(TargetFramework)' == 'net6.0'">
-      <PackageReference Include="SettingsKit" Version="5.0.0-beta.1" />
+      <PackageReference Include="SettingsKit" Version="5.0.0" />
     </ItemGroup>
 
 </Project>
