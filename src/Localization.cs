@@ -24,6 +24,8 @@ SOFTWARE.
 using System.Collections.Generic;
 
 using AlastairLundy.SettingsKit;
+// ReSharper disable FieldCanBeMadeReadOnly.Global
+// ReSharper disable InconsistentNaming
 
 namespace AlastairLundy.LocalizationKit{
     /// <summary>
