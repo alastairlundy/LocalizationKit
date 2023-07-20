@@ -41,7 +41,7 @@ namespace AlastairLundy.LocalizationKit{
         internal SettingsManager<string, string> _settingsManager;
 
         /// <summary>
-        /// 
+        /// Create a new Localization object and load Localizations from the ISettingsProvider.
         /// </summary>
         /// <param name="pathToFile"></param>
         /// <param name="localeCode">The locale code associated with the Localization to be loaded.</param>
