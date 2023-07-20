@@ -51,7 +51,7 @@ namespace AlastairLundy.LocalizationKit{
         /// <param name="locale">The locale of the localization to add</param>
         /// <param name="pathToLocalizationFile">The path to the localization file.</param>
         /// <param name="settingsProvider">The provider to use</param>
-        public void LoadLocalization(string locale, string pathToLocalizationFile, ISettingsProvider<string, string> settingsProvider)
+        public void LoadLocalization(string locale, string pathToLocalizationFile, ISettingsFileProvider<string, string> settingsProvider)
         {
             // Ensure all locales are stored in lowercase so that case sensitivity is not an issue.
             if (!IsCaseSensitive)

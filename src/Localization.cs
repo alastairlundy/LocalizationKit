@@ -57,7 +57,7 @@ namespace AlastairLundy.LocalizationKit{
         /// Load the localization
         /// </summary>
         /// <param name="settingsProvider">The settings provider to use to retrieve Localizations stored in a file.</param>
-        public void Load(ISettingsProvider<string, string> settingsProvider)
+        public void Load(ISettingsFileProvider<string, string> settingsProvider)
         {
             Translations = settingsProvider.Get(PathToLocalizationFile);
         }

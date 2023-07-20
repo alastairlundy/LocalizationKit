@@ -29,7 +29,7 @@ LocalizationManager localizationManager = new LocalizationManager();
 string path = Environment.CurrentDirectory + Path.DirectorySeparatorChar + "testing" + Path.DirectorySeparatorChar +
               "en_us.json";
 
-localizationManager.LoadLocalization("en_us", path, new JsonSettingsProvider<string, string>());
+localizationManager.LoadLocalization("en_us", path, new JsonSettingsFileProvider<string, string>());
 
 var localization = localizationManager.GetLocalization("en_us");
 
