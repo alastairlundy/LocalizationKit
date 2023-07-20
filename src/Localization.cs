@@ -44,14 +44,22 @@ namespace AlastairLundy.LocalizationKit{
         /// 
         /// </summary>
         /// <param name="pathToFile"></param>
-        /// <param name="localeCode"></param>
-        /// <param name="settingsProvider"></param>
-        public Localization(string pathToFile, string localeCode, ISettingsProvider<string, string> settingsProvider)
+        /// <param name="localeCode">The locale code associated with the Localization to be loaded.</param>
+        public Localization(string pathToFile, string localeCode)
         {
+            _settingsManager = new SettingsManager<string, string>();
+            
             LocaleCode = localeCode;
             PathToLocalizationFile = pathToFile;
+        }
 
-            Translations = settingsProvider.Get(pathToFile);
+        /// <summary>
+        /// Load the localization
+        /// </summary>
+        /// <param name="settingsProvider">The settings provider to use to retrieve Localizations stored in a file.</param>
+        public void Load(ISettingsProvider<string, string> settingsProvider)
+        {
+            Translations = settingsProvider.Get(PathToLocalizationFile);
         }
     
         /// <summary>
