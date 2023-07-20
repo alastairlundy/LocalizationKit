@@ -32,8 +32,16 @@ namespace AlastairLundy.LocalizationKit{
     {
         protected Dictionary<string, Localization> Localizations;
         
-        public LocalizationManager()
+        public bool IsCaseSensitive { get; }
+        
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="enableCaseSensitivity"></param>
+        public LocalizationManager(bool enableCaseSensitivity = true)
         {
+            IsCaseSensitive = enableCaseSensitivity;
+            
             Localizations = new Dictionary<string, Localization>();
         }
         
@@ -47,6 +55,11 @@ namespace AlastairLundy.LocalizationKit{
         {
             //Localization loading now happens in the Localization constructor.
             Localization localization = new Localization(pathToLocalizationFile, locale, settingsProvider);
+            // Ensure all locales are stored in lowercase so that case sensitivity is not an issue.
+            if (!IsCaseSensitive)
+            {
+                locale = locale.ToLower();
+            }
 
             //Add the localization to the localizations list.
             Localizations.Add(locale, localization);
@@ -59,7 +72,14 @@ namespace AlastairLundy.LocalizationKit{
         /// <returns></returns>
         public Localization GetLocalization(string locale)
         {
-            return Localizations[locale];
+            if (IsCaseSensitive)
+            {
+                return Localizations[locale];
+            }
+            else
+            {
+                return Localizations[locale.ToLower()];
+            }
         }
 
         /// <summary>
@@ -70,7 +90,14 @@ namespace AlastairLundy.LocalizationKit{
         /// <returns></returns>
         public KeyValuePair<string, string> GetLocalizedPhrase(string locale, string key)
         {
-            return Localizations[locale].GetLocalizedPhrase(key);
+            if (IsCaseSensitive)
+            {
+                return Localizations[locale].GetLocalizedPhrase(key);
+            }
+            else
+            {
+                return Localizations[locale.ToLower()].GetLocalizedPhrase(key);
+            }
         }
 
         /// <summary>
