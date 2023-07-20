@@ -110,5 +110,21 @@ namespace AlastairLundy.LocalizationKit{
         {
             return Localizations;
         }
+
+        /// <summary>
+        /// Gets a list of Locales Stored in the LocalizationManager
+        /// </summary>
+        /// <returns></returns>
+        public string[] GetLocalesStored()
+        {
+            List<string> list = new List<string>();
+            
+            foreach (var localization in Localizations)
+            {
+                list.Add(localization.Key);
+            }
+
+            return list.ToArray();
+        }
     }
 }
