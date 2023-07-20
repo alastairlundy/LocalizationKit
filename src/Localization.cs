@@ -38,6 +38,8 @@ namespace AlastairLundy.LocalizationKit{
         
         public KeyValuePair<string, string>[] Translations { get; set; }
 
+        internal SettingsManager<string, string> _settingsManager;
+
         /// <summary>
         /// 
         /// </summary>
@@ -53,13 +55,13 @@ namespace AlastairLundy.LocalizationKit{
         }
     
         /// <summary>
-        /// 
+        /// Returns the Localized phrase associated with the specified Key.
         /// </summary>
-        /// <param name="key"></param>
-        /// <returns></returns>
+        /// <param name="key">The key to use when searching for a localized phrase.</param>
+        /// <returns>A localized phrase - Usually a translation of a word or words.</returns>
         public KeyValuePair<string, string> GetLocalizedPhrase(string key)
         {
-            return new SettingsManager<string, string>().GetKeyValuePair(Translations, key);
+            return _settingsManager.GetKeyValuePair(Translations, key);
         }
     }
 }
