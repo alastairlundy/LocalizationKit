@@ -9,18 +9,14 @@
         <Copyright>Copyright (c) 2021-2023</Copyright>
         <RepositoryUrl>https://github.com/alastairlundy/LocalizationKit</RepositoryUrl>
         <RepositoryType>git</RepositoryType>
-        <PackageReleaseNotes>### Changes since 5.0.0 RC 1
-* Updated SettingsKit Dependency from 5.0.0 Alpha 1 to 5.0.0 Alpha 3
-* Updated internal code to reflect changes.
-
-### Notes
-* This library will release version 5.0.0 once SettingsKit has reached 5.0.0
-    * 5.0.0 Beta 1 is the next expected version of SettingsKit, If no further issues are identified in the Beta the following release will be SettingsKit 5.0.0</PackageReleaseNotes>
+        <PackageReleaseNotes>### Changes since 5.0.0 RC 2
+* Updated SettingsKit Dependency from 5.0.0 Alpha 3 to 5.0.0 Beta 1
+* Updated internal code to reflect changes.</PackageReleaseNotes>
         <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
         <AssemblyVersion>5.0.0.0</AssemblyVersion>
         <FileVersion>5.0.0.0</FileVersion>
         <Version>5.0.0</Version>
-        <PackageVersion>5.0.0-rc.2</PackageVersion>
+        <PackageVersion>5.0.0-rc.3</PackageVersion>
         <PackageLicenseFile>LICENSE.md</PackageLicenseFile>
         <LangVersion>default</LangVersion>
         <PackageReadmeFile>README.md</PackageReadmeFile>
