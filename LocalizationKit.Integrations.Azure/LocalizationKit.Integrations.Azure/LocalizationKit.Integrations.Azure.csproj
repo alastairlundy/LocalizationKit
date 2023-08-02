@@ -1,0 +1,16 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>net6.0</TargetFramework>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <Nullable>enable</Nullable>
+        <RootNamespace>AlastairLundy.LocalizationKit.Integrations.Azure</RootNamespace>
+        <LangVersion>default</LangVersion>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <PackageReference Include="Azure.AI.Translation.Text" Version="1.0.0-beta.1" />
+      <PackageReference Include="LocalizationKit" Version="5.0.0" />
+    </ItemGroup>
+
+</Project>
