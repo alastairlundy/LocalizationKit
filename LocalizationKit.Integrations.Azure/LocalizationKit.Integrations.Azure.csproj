@@ -12,15 +12,23 @@
         <RepositoryUrl>https://github.com/alastairlundy/LocalizationKit</RepositoryUrl>
         <RepositoryType>git</RepositoryType>
         <PackageReleaseNotes>Initial Release.</PackageReleaseNotes>
+        <Version>1.0.0-beta.1</Version>
     </PropertyGroup>
 
     <ItemGroup>
       <PackageReference Include="Azure.AI.Translation.Text" Version="1.0.0-beta.1" />
-      <PackageReference Include="LocalizationKit" Version="5.0.0" />
+      <PackageReference Include="LocalizationKit" Version="5.1.0" />
     </ItemGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\..\src\LocalizationKit.csproj" />
+        <None Include="..\LICENSE.md">
+            <Pack>True</Pack>
+            <PackagePath></PackagePath>
+            <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+        </None>
+        <None Include="../README.md" Pack="true" PackagePath="\" />
+        <None Remove="LocalizationKitTest\**" />
     </ItemGroup>
+
 
 </Project>
