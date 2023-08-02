@@ -1,3 +1,5 @@
+using System;
+
 namespace AlastairLundy.LocalizationKit;
 
 /// <summary>
@@ -25,6 +27,45 @@ public class Locale
         return $"{LanguageCode}_{CountryCode}".ToLower();
     }
 
+    public void Parse(string locale)
+    {
+        try
+        {
+            if (locale.Contains('_'))
+            {
+                var adjustedLocale = locale.Split('_');
+
+                LanguageCode = adjustedLocale[0].ToLower();
+
+                if (adjustedLocale[1].Equals("_"))
+                {
+                    if (adjustedLocale.Length > 2)
+                    {
+                        CountryCode = adjustedLocale[2].ToLower();
+                    }
+                    else
+                    {
+                        CountryCode = "";
+                    }
+                }
+                else
+                {
+                    CountryCode = adjustedLocale[1].ToLower();
+                }
+            }
+        }
+        catch (Exception exception)
+        {
+            Console.WriteLine(exception.ToString());
+            throw;
+        }
+    }
+
+    public Locale(string locale)
+    {
+        Parse(locale);
+    }
+    
     /// <summary>
     /// Initialize the Locale upon instantiation.
     /// </summary>
