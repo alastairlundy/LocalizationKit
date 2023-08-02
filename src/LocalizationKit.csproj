@@ -6,19 +6,30 @@
         <Title>LocalizationKit</Title>
         <Authors>AlastairLundy</Authors>
         <Description>Make Localizations in .NET easy.</Description>
-        <Copyright>Copyright (c) 2021-2023</Copyright>
+        <Copyright>Copyright (c) 2021-2023 Alastair Lundy</Copyright>
         <RepositoryUrl>https://github.com/alastairlundy/LocalizationKit</RepositoryUrl>
         <RepositoryType>git</RepositoryType>
-        <PackageReleaseNotes>### Changes since 4.0.0
-* Updated SettingsKit dependency from 4.0.0 to 5.0.0
-* Changed paramater names,
-* Changed the Translations object to be of type KeyValuePair&lt;string, string&gt; .
-* Added some in code comments</PackageReleaseNotes>
+        <PackageReleaseNotes>## Changes since 5.0.0
+
+### Additions
+* Added ``Locale`` class to represent Locales
+* Added ``Locale`` support in the ``Localization`` and ``LocalizationManager`` classes
+* Added extra constructors to ``Localization`` class to support usage without file paths.
+
+### Changes
+* Changed ``Translations`` field to be of type ``List`` instead of an array. - This is intended to allow adding new Phrases so that Localizations can be generated without needing a file representation of a Localization file.
+
+### Deprecations
+* Deprecated ``LocaleCode`` string field in the ``Localization`` class
+* Deprecated code that relies on ``LocaleCode`` - Replacement methods and fields have been provided to use the ``Locale`` class instead.
+
+### Notes
+* Alongside this release, the inirial release of ``LocalizationKit.Integrations.Azure`` will be published to Nuget to add the ability to generate Localizations using Azure's Text Translation API. This functionality is in beta and I would appreciate any feedback (including if you'd like to see integration with AWS's Text Translation services etc). If you wish to use this you will need to provide your own Azure API Key and Azure region</PackageReleaseNotes>
         <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
-        <AssemblyVersion>5.0.0.0</AssemblyVersion>
-        <FileVersion>5.0.0.0</FileVersion>
-        <Version>5.0.0</Version>
-        <PackageVersion>5.0.0</PackageVersion>
+        <AssemblyVersion>5.1.0.0</AssemblyVersion>
+        <FileVersion>5.1.0.0</FileVersion>
+        <Version>5.1.0</Version>
+        <PackageVersion>5.1.0</PackageVersion>
         <PackageLicenseFile>LICENSE.md</PackageLicenseFile>
         <LangVersion>default</LangVersion>
         <PackageReadmeFile>README.md</PackageReadmeFile>

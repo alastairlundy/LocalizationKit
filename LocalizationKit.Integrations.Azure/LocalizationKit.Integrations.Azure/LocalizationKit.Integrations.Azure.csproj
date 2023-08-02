@@ -6,11 +6,21 @@
         <Nullable>enable</Nullable>
         <RootNamespace>AlastairLundy.LocalizationKit.Integrations.Azure</RootNamespace>
         <LangVersion>default</LangVersion>
+        <Title>LocalizationKit.Integrations.Azure</Title>
+        <Description>An extension library that adds the ability to Generate Localizations using Azure's Text Translator API. You must supply your own Azure API key.</Description>
+        <Copyright>Copyright (c) 2023 Alastair Lundy</Copyright>
+        <RepositoryUrl>https://github.com/alastairlundy/LocalizationKit</RepositoryUrl>
+        <RepositoryType>git</RepositoryType>
+        <PackageReleaseNotes>Initial Release.</PackageReleaseNotes>
     </PropertyGroup>
 
     <ItemGroup>
       <PackageReference Include="Azure.AI.Translation.Text" Version="1.0.0-beta.1" />
       <PackageReference Include="LocalizationKit" Version="5.0.0" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\..\src\LocalizationKit.csproj" />
     </ItemGroup>
 
 </Project>
