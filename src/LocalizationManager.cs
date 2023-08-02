@@ -78,9 +78,9 @@ namespace AlastairLundy.LocalizationKit{
         /// <param name="settingsProvider">The provider to use</param>
         public void LoadLocalization(Locale locale, string pathToLocalizationFile, ISettingsFileProvider<string, string> settingsProvider)
         {
-            Localization localization = new Localization(pathToLocalizationFile, locale);
+            Localization localization = new Localization(locale);
             
-            localization.Load(settingsProvider);
+            localization.Load(settingsProvider, pathToLocalizationFile);
 
             //Add the localization to the localizations list.
             Localizations.Add(locale, localization);

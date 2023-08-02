@@ -81,7 +81,22 @@ namespace AlastairLundy.LocalizationKit{
             PathToLocalizationFile = pathToFile;
         }
         
-        public Localization(string pathToFile, Locale locale)
+        /// <summary>
+        /// Create a new Localization object and load Localizations from the ISettingsProvider.
+        /// </summary>
+        /// <param name="locale">The locale associated with the Localization to be loaded.</param>
+        public Localization(Locale locale)
+        {
+            _settingsManager = new SettingsManager<string, string>();
+            Locale = locale; 
+        }
+        
+        /// <summary>
+        /// Create a new Localization object and load Localizations from the ISettingsProvider.
+        /// </summary>
+        /// <param name="locale">The locale associated with the Localization to be loaded.</param>
+        /// <param name="pathToFile"></param>
+        public Localization(Locale locale, string pathToFile)
         {
             _settingsManager = new SettingsManager<string, string>();
             Locale = locale;
