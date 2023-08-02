@@ -63,7 +63,7 @@ namespace AlastairLundy.LocalizationKit{
         }
         public string PathToLocalizationFile { get; set; }
 
-        public KeyValuePair<string, string>[] Translations { get; set; }
+        public List<KeyValuePair<string, string>> Translations { get; set; }
 
         internal SettingsManager<string, string> _settingsManager;
 
@@ -109,9 +109,27 @@ namespace AlastairLundy.LocalizationKit{
         /// <param name="settingsProvider">The settings provider to use to retrieve Localizations stored in a file.</param>
         public void Load(ISettingsFileProvider<string, string> settingsProvider)
         {
-            Translations = settingsProvider.Get(PathToLocalizationFile);
+            foreach (var pair in settingsProvider.Get(PathToLocalizationFile))
+            {
+                Translations.Add(pair);
+            }
         }
-    
+
+        /// <summary>
+        /// Load the localization
+        /// </summary>
+        /// <param name="settingsProvider">The settings provider to use to retrieve Localizations stored in a file.</param>
+        /// <param name="pathToLocalizedFile"></param>
+        public void Load(ISettingsFileProvider<string, string> settingsProvider, string pathToLocalizedFile)
+        {
+            this.PathToLocalizationFile = pathToLocalizedFile;
+
+            foreach (var pair in settingsProvider.Get(PathToLocalizationFile))
+            {
+                Translations.Add(pair);
+            }
+        }
+
         /// <summary>
         /// Returns the Localized phrase associated with the specified Key.
         /// </summary>
@@ -119,7 +137,7 @@ namespace AlastairLundy.LocalizationKit{
         /// <returns>A localized phrase - Usually a translation of a word or words.</returns>
         public KeyValuePair<string, string> GetLocalizedPhrase(string key)
         {
-            return _settingsManager.GetKeyValuePair(Translations, key);
+            return _settingsManager.GetKeyValuePair(Translations.ToArray(), key);
         }
     }
 }
