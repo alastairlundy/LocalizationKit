@@ -14,6 +14,9 @@
         <PackageReleaseNotes>Initial Release.</PackageReleaseNotes>
         <Version>1.0.0-beta.1</Version>
         <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+        <PackageLicenseFile>LICENSE.md</PackageLicenseFile>
+        <LangVersion>default</LangVersion>
+        <PackageReadmeFile>README.md</PackageReadmeFile>
     </PropertyGroup>
 
     <ItemGroup>
