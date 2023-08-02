@@ -21,6 +21,7 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
  */
 
+using System;
 using System.Collections.Generic;
 using AlastairLundy.SettingsKit;
 
@@ -30,7 +31,7 @@ namespace AlastairLundy.LocalizationKit{
     /// </summary>
     public class LocalizationManager
     {
-        protected Dictionary<string, Localization> Localizations;
+        protected Dictionary<Locale, Localization> Localizations;
         
         public bool IsCaseSensitive { get; }
         
@@ -42,7 +43,7 @@ namespace AlastairLundy.LocalizationKit{
         {
             IsCaseSensitive = enableCaseSensitivity;
             
-            Localizations = new Dictionary<string, Localization>();
+            Localizations = new Dictionary<Locale, Localization>();
         }
         
         /// <summary>
@@ -51,6 +52,7 @@ namespace AlastairLundy.LocalizationKit{
         /// <param name="locale">The locale of the localization to add</param>
         /// <param name="pathToLocalizationFile">The path to the localization file.</param>
         /// <param name="settingsProvider">The provider to use</param>
+        [Obsolete("This function is deprecated as it relies on a deprecated parameter and will be removed in a future version. Please use the replacement function with the Locale parameter.")]
         public void LoadLocalization(string locale, string pathToLocalizationFile, ISettingsFileProvider<string, string> settingsProvider)
         {
             // Ensure all locales are stored in lowercase so that case sensitivity is not an issue.
@@ -58,7 +60,24 @@ namespace AlastairLundy.LocalizationKit{
             {
                 locale = locale.ToLower();
             }
+
+            Localization localization = new Localization(pathToLocalizationFile, locale);
+            localization.LocaleCode = locale;
             
+            localization.Load(settingsProvider);
+
+            //Add the localization to the localizations list.
+            Localizations.Add(localization.Locale, localization);
+        }
+        
+        /// <summary>
+        /// Load localizations from a file using an ISettings Provider
+        /// </summary>
+        /// <param name="locale">The locale of the localization to add</param>
+        /// <param name="pathToLocalizationFile">The path to the localization file.</param>
+        /// <param name="settingsProvider">The provider to use</param>
+        public void LoadLocalization(Locale locale, string pathToLocalizationFile, ISettingsFileProvider<string, string> settingsProvider)
+        {
             Localization localization = new Localization(pathToLocalizationFile, locale);
             
             localization.Load(settingsProvider);
@@ -76,11 +95,11 @@ namespace AlastairLundy.LocalizationKit{
         {
             if (IsCaseSensitive)
             {
-                return Localizations[locale];
+                return Localizations[new Locale(locale)];
             }
             else
             {
-                return Localizations[locale.ToLower()];
+                return Localizations[new Locale(locale)];
             }
         }
 
@@ -90,7 +109,25 @@ namespace AlastairLundy.LocalizationKit{
         /// <param name="locale"></param>
         /// <param name="key"></param>
         /// <returns></returns>
+        [Obsolete("This function is deprecated as it relies on a deprecated parameter.")]
         public KeyValuePair<string, string> GetLocalizedPhrase(string locale, string key)
+        {
+            if (IsCaseSensitive)
+            {
+                return Localizations[new Locale(locale)].GetLocalizedPhrase(key);
+            }
+            else
+            {
+                return Localizations[new Locale(locale.ToLower())].GetLocalizedPhrase(key);
+            }
+        }
+        /// <summary>
+        /// Returns a localized phrase from a localization associated with a specified locale and key.
+        /// </summary>
+        /// <param name="locale"></param>
+        /// <param name="key"></param>
+        /// <returns></returns>
+        public KeyValuePair<string, string> GetLocalizedPhrase(Locale locale, string key)
         {
             if (IsCaseSensitive)
             {
@@ -98,7 +135,7 @@ namespace AlastairLundy.LocalizationKit{
             }
             else
             {
-                return Localizations[locale.ToLower()].GetLocalizedPhrase(key);
+                return Localizations[locale].GetLocalizedPhrase(key);
             }
         }
 
@@ -106,10 +143,28 @@ namespace AlastairLundy.LocalizationKit{
         /// Return all localizations as a Dictionary.
         /// </summary>
         /// <returns></returns>
+        [Obsolete("This function is deprecated as it relies on deprecated code and will be removed in a future version.")]
         public Dictionary<string, Localization> ToLocalizations()
+        {
+            Dictionary<string, Localization> newLocalizations = new Dictionary<string, Localization>();
+
+            foreach (var localization in Localizations)
+            {
+                newLocalizations.Add(localization.Key.ToString(), localization.Value);
+            }
+
+            return newLocalizations;
+        }
+        
+        /// <summary>
+        /// Return all localizations as a Dictionary.
+        /// </summary>
+        /// <returns></returns>
+        public Dictionary<Locale, Localization> ToDictionary()
         {
             return Localizations;
         }
+        
 
         /// <summary>
         /// Gets a list of Locales Stored in the LocalizationManager
@@ -121,7 +176,7 @@ namespace AlastairLundy.LocalizationKit{
             
             foreach (var localization in Localizations)
             {
-                list.Add(localization.Key);
+                list.Add(localization.Key.ToString());
             }
 
             return list.ToArray();
