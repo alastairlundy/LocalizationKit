@@ -39,47 +39,11 @@ namespace AlastairLundy.LocalizationKit{
         /// </summary>
         public Locale Locale { get; set; }
         
-        [Obsolete("This field is deprecated and will be removed in a future version, Use the Locale field directly as a replacement.")]
-        public string LocaleCode 
-        {
-            get
-            {
-                try
-                {
-                    if (Locale != null) return Locale.LanguageCode;
-                    else
-                    {
-                        throw new NullReferenceException();
-                    }
-                }
-                catch (Exception exception)
-                {
-                    Console.WriteLine(exception.ToString());
-                    Console.WriteLine("LocaleCode object is null and has not been set.");
-                    throw;
-                }
-            }
-            set => Locale = new Locale(value, "");
-        }
         public string PathToLocalizationFile { get; set; }
 
         public List<KeyValuePair<string, string>> Translations { get; set; }
 
         internal SettingsManager<string, string> _settingsManager;
-
-        /// <summary>
-        /// Create a new Localization object and load Localizations from the ISettingsProvider.
-        /// </summary>
-        /// <param name="pathToFile"></param>
-        /// <param name="localeCode">The locale code associated with the Localization to be loaded.</param>
-        [Obsolete("This constructor uses a field that is obsolete and will be removed in a future version. Please migrate to the other constructor using the Locale object instead.")]
-        public Localization(string pathToFile, string localeCode)
-        {
-            _settingsManager = new SettingsManager<string, string>();
-            
-            LocaleCode = localeCode;
-            PathToLocalizationFile = pathToFile;
-        }
         
         /// <summary>
         /// Create a new Localization object and load Localizations from the ISettingsProvider.
