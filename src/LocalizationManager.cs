@@ -23,6 +23,7 @@ SOFTWARE.
 
 using System;
 using System.Collections.Generic;
+using AlastairLundy.LocalizationKit.Interfaces;
 using AlastairLundy.SettingsKit;
 
 namespace AlastairLundy.LocalizationKit{
@@ -51,9 +52,9 @@ namespace AlastairLundy.LocalizationKit{
         /// </summary>
         /// <param name="locale">The locale of the localization to add</param>
         /// <param name="pathToLocalizationFile">The path to the localization file.</param>
-        /// <param name="settingsProvider">The provider to use</param>
+        /// <param name="localizationFileProvider">The provider to use</param>
         [Obsolete("This function is deprecated as it relies on a deprecated parameter and will be removed in a future version. Please use the replacement function with the Locale parameter.")]
-        public void LoadLocalization(string locale, string pathToLocalizationFile, ISettingsFileProvider<string, string> settingsProvider)
+        public void LoadLocalization(string locale, string pathToLocalizationFile, ILocalizationFileProvider localizationFileProvider)
         {
             // Ensure all locales are stored in lowercase so that case sensitivity is not an issue.
             if (!IsCaseSensitive)
@@ -64,28 +65,28 @@ namespace AlastairLundy.LocalizationKit{
             Localization localization = new Localization(pathToLocalizationFile, locale);
             localization.LocaleCode = locale;
             
-            localization.Load(settingsProvider);
+            localization.Load(localizationFileProvider);
 
             //Add the localization to the localizations list.
             Localizations.Add(localization.Locale, localization);
         }
-        
+
         /// <summary>
         /// Load localizations from a file using an ISettings Provider
         /// </summary>
         /// <param name="locale">The locale of the localization to add</param>
         /// <param name="pathToLocalizationFile">The path to the localization file.</param>
-        /// <param name="settingsProvider">The provider to use</param>
-        public void LoadLocalization(Locale locale, string pathToLocalizationFile, ISettingsFileProvider<string, string> settingsProvider)
+        /// <param name="localizationFileProvider">The provider to use</param>
+        public void LoadLocalization(Locale locale, string pathToLocalizationFile, ILocalizationFileProvider localizationFileProvider)
         {
             Localization localization = new Localization(locale);
-            
-            localization.Load(settingsProvider, pathToLocalizationFile);
+
+            localization.Load(localizationFileProvider, pathToLocalizationFile);
 
             //Add the localization to the localizations list.
             Localizations.Add(locale, localization);
         }
-    
+
         /// <summary>
         /// Returns the localization associated with a specified locale.
         /// </summary>

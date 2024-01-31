@@ -23,7 +23,7 @@ SOFTWARE.
 
 using System;
 using System.Collections.Generic;
-
+using AlastairLundy.LocalizationKit.Interfaces;
 using AlastairLundy.SettingsKit;
 // ReSharper disable FieldCanBeMadeReadOnly.Global
 // ReSharper disable InconsistentNaming
@@ -70,10 +70,10 @@ namespace AlastairLundy.LocalizationKit{
         /// <summary>
         /// Load the localization
         /// </summary>
-        /// <param name="settingsProvider">The settings provider to use to retrieve Localizations stored in a file.</param>
-        public void Load(ISettingsFileProvider<string, string> settingsProvider)
+        /// <param name="localizationFileProvider">The localizations provider to use to retrieve Localizations stored in a file.</param>
+        public void Load(ILocalizationFileProvider localizationFileProvider)
         {
-            foreach (var pair in settingsProvider.Get(PathToLocalizationFile))
+            foreach (var pair in localizationFileProvider.Get(PathToLocalizationFile))
             {
                 Translations.Add(pair);
             }
@@ -82,13 +82,13 @@ namespace AlastairLundy.LocalizationKit{
         /// <summary>
         /// Load the localization
         /// </summary>
-        /// <param name="settingsProvider">The settings provider to use to retrieve Localizations stored in a file.</param>
+        /// <param name="localizationFileProvider">The settings provider to use to retrieve Localizations stored in a file.</param>
         /// <param name="pathToLocalizedFile"></param>
-        public void Load(ISettingsFileProvider<string, string> settingsProvider, string pathToLocalizedFile)
+        public void Load(ILocalizationFileProvider localizationFileProvider, string pathToLocalizedFile)
         {
             this.PathToLocalizationFile = pathToLocalizedFile;
 
-            foreach (var pair in settingsProvider.Get(PathToLocalizationFile))
+            foreach (var pair in localizationFileProvider.Get(PathToLocalizationFile))
             {
                 Translations.Add(pair);
             }
