@@ -15,7 +15,7 @@ public class Locale
     /// <summary>
     /// A 2 digit country code that represents the country where the locale belongs to within the language support. (e.g. en_us is US English, en_gb is British English, fr_fr is French french).
     /// </summary>
-    public string CountryCode { get; set; }
+    public string? CountryCode { get; set; }
 
     /// <summary>
     /// Returns the Locale to string in the format of LanguageCode_CountryCode.
@@ -51,6 +51,14 @@ public class Locale
                 else
                 {
                     CountryCode = adjustedLocale[1].ToLower();
+                }
+            }
+            else
+            {
+                if(locale.Length == 2)
+                {
+                    LanguageCode = locale;
+                    CountryCode = null;
                 }
             }
         }
