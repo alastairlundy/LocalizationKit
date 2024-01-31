@@ -23,8 +23,8 @@ SOFTWARE.
 
 using System;
 using System.Collections.Generic;
+
 using AlastairLundy.LocalizationKit.Interfaces;
-using AlastairLundy.SettingsKit;
 // ReSharper disable FieldCanBeMadeReadOnly.Global
 // ReSharper disable InconsistentNaming
 
@@ -43,7 +43,6 @@ namespace AlastairLundy.LocalizationKit{
 
         public List<KeyValuePair<string, string>> Translations { get; set; }
 
-        internal SettingsManager<string, string> _settingsManager;
         
         /// <summary>
         /// Create a new Localization object and load Localizations from the ISettingsProvider.
@@ -51,7 +50,6 @@ namespace AlastairLundy.LocalizationKit{
         /// <param name="locale">The locale associated with the Localization to be loaded.</param>
         public Localization(Locale locale)
         {
-            _settingsManager = new SettingsManager<string, string>();
             Locale = locale; 
         }
         
@@ -62,7 +60,6 @@ namespace AlastairLundy.LocalizationKit{
         /// <param name="pathToFile"></param>
         public Localization(Locale locale, string pathToFile)
         {
-            _settingsManager = new SettingsManager<string, string>();
             Locale = locale;
             PathToLocalizationFile = pathToFile;
         }
@@ -101,7 +98,14 @@ namespace AlastairLundy.LocalizationKit{
         /// <returns>A localized phrase - Usually a translation of a word or words.</returns>
         public KeyValuePair<string, string> GetLocalizedPhrase(string key)
         {
-            return _settingsManager.GetKeyValuePair(Translations.ToArray(), key);
+            foreach(var pair in Translations) { 
+                if(pair.Key.Equals(key, StringComparison.OrdinalIgnoreCase))
+                {
+                    return pair;
+                }
+            }
+
+            throw new KeyNotFoundException();
         }
     }
 }

@@ -54,8 +54,6 @@
       <EmbeddedResource Remove="LocalizationKitTest\**" />
     </ItemGroup>
 
-    <ItemGroup Condition="'$(TargetFramework)' == 'net6.0'">
-      <PackageReference Include="SettingsKit" Version="5.0.0" />
     </ItemGroup>
 
 </Project>
