@@ -54,6 +54,4 @@
       <EmbeddedResource Remove="LocalizationKitTest\**" />
     </ItemGroup>
 
-    </ItemGroup>
-
 </Project>
