@@ -24,7 +24,6 @@ SOFTWARE.
 using System;
 using System.Collections.Generic;
 using AlastairLundy.LocalizationKit.Interfaces;
-using AlastairLundy.SettingsKit;
 
 namespace AlastairLundy.LocalizationKit{
     /// <summary>
