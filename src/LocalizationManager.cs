@@ -46,30 +46,6 @@ namespace AlastairLundy.LocalizationKit{
             
             Localizations = new Dictionary<Locale, Localization>();
         }
-        
-        /// <summary>
-        /// Load localizations from a file using an ISettings Provider
-        /// </summary>
-        /// <param name="locale">The locale of the localization to add</param>
-        /// <param name="pathToLocalizationFile">The path to the localization file.</param>
-        /// <param name="localizationFileProvider">The provider to use</param>
-        [Obsolete("This function is deprecated as it relies on a deprecated parameter and will be removed in a future version. Please use the replacement function with the Locale parameter.")]
-        public void LoadLocalization(string locale, string pathToLocalizationFile, ILocalizationFileProvider localizationFileProvider)
-        {
-            // Ensure all locales are stored in lowercase so that case sensitivity is not an issue.
-            if (!IsCaseSensitive)
-            {
-                locale = locale.ToLower();
-            }
-
-            Localization localization = new Localization(pathToLocalizationFile, locale);
-            localization.LocaleCode = locale;
-            
-            localization.Load(localizationFileProvider);
-
-            //Add the localization to the localizations list.
-            Localizations.Add(localization.Locale, localization);
-        }
 
         /// <summary>
         /// Load localizations from a file using an ISettings Provider
