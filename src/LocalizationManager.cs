@@ -113,23 +113,6 @@ namespace LocalizationKit{
                 return Localizations[locale].GetLocalizedPhrase(key);
             }
         }
-
-        /// <summary>
-        /// Return all localizations as a Dictionary.
-        /// </summary>
-        /// <returns></returns>
-        [Obsolete("This function is deprecated as it relies on deprecated code and will be removed in a future version.")]
-        public Dictionary<string, Localization> ToLocalizations()
-        {
-            Dictionary<string, Localization> newLocalizations = new Dictionary<string, Localization>();
-
-            foreach (var localization in Localizations)
-            {
-                newLocalizations.Add(localization.Key.ToString(), localization.Value);
-            }
-
-            return newLocalizations;
-        }
         
         /// <summary>
         /// Return all localizations as a Dictionary.
