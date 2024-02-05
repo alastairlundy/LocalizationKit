@@ -21,11 +21,9 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
  */
 
-using AlastairLundy.LocalizationKit;
-using AlastairLundy.LocalizationKit.Exceptions;
-
 using Azure;
 using Azure.AI.Translation.Text;
+using LocalizationKit.Exceptions;
 
 namespace LocalizationKit.Integrations.Azure;
 
