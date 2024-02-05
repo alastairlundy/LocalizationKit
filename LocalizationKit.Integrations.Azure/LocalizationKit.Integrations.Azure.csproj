@@ -1,10 +1,8 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
     <PropertyGroup>
-        <TargetFramework>net6.0</TargetFramework>
         <ImplicitUsings>enable</ImplicitUsings>
         <Nullable>enable</Nullable>
-        <RootNamespace>AlastairLundy.LocalizationKit.Integrations.Azure</RootNamespace>
         <LangVersion>default</LangVersion>
         <Title>LocalizationKit.Integrations.Azure</Title>
         <Description>An extension library that adds the ability to Generate Localizations using Azure's Text Translator API. You must supply your own Azure API key.</Description>
@@ -17,6 +15,7 @@
         <PackageLicenseFile>LICENSE.md</PackageLicenseFile>
         <LangVersion>default</LangVersion>
         <PackageReadmeFile>README.md</PackageReadmeFile>
+        <TargetFrameworks>net6.0;net8.0;netstandard1.0</TargetFrameworks>
     </PropertyGroup>
 
     <ItemGroup>
