@@ -31,6 +31,7 @@ public class Locale
     {
         try
         {
+           #if NET6_0_OR_GREATER
             if (locale.Contains('_'))
             {
                 var adjustedLocale = locale.Split('_');
@@ -53,6 +54,30 @@ public class Locale
                     CountryCode = adjustedLocale[1].ToLower();
                 }
             }
+            #else
+            if (locale.Contains("_"))
+            {
+                var adjustedLocale = locale.Split('_');
+
+                LanguageCode = adjustedLocale[0].ToLower();
+
+                if (adjustedLocale[1].Equals("_"))
+                {
+                    if (adjustedLocale.Length > 2)
+                    {
+                        CountryCode = adjustedLocale[2].ToLower();
+                    }
+                    else
+                    {
+                        CountryCode = "";
+                    }
+                }
+                else
+                {
+                    CountryCode = adjustedLocale[1].ToLower();
+                }
+            }
+            #endif
             else
             {
                 if(locale.Length == 2)
