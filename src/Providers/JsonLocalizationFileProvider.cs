@@ -43,17 +43,21 @@ namespace LocalizationKit.Providers
                     .Replace('"', String.Empty[0])
                     .Replace("'", String.Empty);
 
-                string[] lines = jsonText.Split("\r\n");
+#if NET6_0_OR_GREATER
+                string[] lines = jsonText.Split(Environment.NewLine);
+#else
+                string[] lines = jsonText.Replace(" ", String.Empty).Split(Environment.NewLine.ToCharArray());
+#endif
 
-                foreach (var line in lines)
-                {
-                    var newLine = line.Replace(" ", String.Empty);
-                    var splitLine = newLine.Split(':');
+            foreach (var line in lines)
+            {
+                var newLine = line.Replace(" ", String.Empty);
+                var splitLine = newLine.Split(':');
                     
-                    list.Add(new KeyValuePair<string, string>(splitLine[0], splitLine[1]));
-                }
+                list.Add(new KeyValuePair<string, string>(splitLine[0], splitLine[1]));
+            }
 
-                return list.ToArray();
+            return list.ToArray();
         }
 
         public void WriteToFile(KeyValuePair<string, string>[] data, string pathToFile)
