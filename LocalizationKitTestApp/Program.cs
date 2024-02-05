@@ -22,13 +22,14 @@ SOFTWARE.
  */
 
 using LocalizationKit;
+using LocalizationKit.Providers;
 
 LocalizationManager localizationManager = new LocalizationManager();
 
 string path = Environment.CurrentDirectory + Path.DirectorySeparatorChar + "testing" + Path.DirectorySeparatorChar +
               "en_us.json";
 
-localizationManager.LoadLocalization("en_us", path, new JsonSettingsFileProvider<string, string>());
+localizationManager.LoadLocalization(new Locale("en_us"), path, new JsonLocalizationFileProvider());
 
 var localization = localizationManager.GetLocalization("en_us");
 

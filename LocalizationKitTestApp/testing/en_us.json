@@ -1,4 +1,3 @@
-[{
-  "Key": "earth.flatness",
-  "Value": "false"
-}]
+{
+    "earth.flatness": "false"
+}
