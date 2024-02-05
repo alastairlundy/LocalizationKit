@@ -1,6 +1,6 @@
 /* MIT License
 
-Copyright (c) 2023 Alastair Lundy
+Copyright (c) 2023-2024 Alastair Lundy
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -21,7 +21,7 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
  */
 
-namespace AlastairLundy.LocalizationKit.Integrations.Azure;
+namespace LocalizationKit.Integrations.Azure;
 
 public static class LocalizationManagerExtensions
 {
