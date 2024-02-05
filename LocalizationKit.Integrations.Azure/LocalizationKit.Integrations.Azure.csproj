@@ -15,12 +15,12 @@
         <PackageLicenseFile>LICENSE.md</PackageLicenseFile>
         <LangVersion>default</LangVersion>
         <PackageReadmeFile>README.md</PackageReadmeFile>
-        <TargetFrameworks>net6.0;net8.0;netstandard1.0</TargetFrameworks>
+        <TargetFrameworks>net6.0;net8.0;netstandard2.0</TargetFrameworks>
     </PropertyGroup>
 
     <ItemGroup>
       <PackageReference Include="Azure.AI.Translation.Text" Version="1.0.0-beta.1" />
-      <PackageReference Include="LocalizationKit" Version="5.1.0" />
+      <PackageReference Include="LocalizationKit" Version="6.0.0-alpha.1" />
     </ItemGroup>
 
     <ItemGroup>
