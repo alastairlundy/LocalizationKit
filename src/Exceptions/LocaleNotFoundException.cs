@@ -1,6 +1,6 @@
 using System;
 
-namespace AlastairLundy.LocalizationKit.Exceptions;
+namespace LocalizationKit.Exceptions;
 
 public class LocaleNotFoundException : Exception
 {

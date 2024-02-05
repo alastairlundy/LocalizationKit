@@ -1,11 +1,8 @@
-﻿using AlastairLundy.LocalizationKit.Interfaces;
-using System;
+﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using LocalizationKit.Interfaces;
 
-namespace AlastairLundy.LocalizationKit.Providers
+namespace LocalizationKit.Providers
 {
     public class ResourceLocalizationFileProvider : ILocalizationFileProvider
     {

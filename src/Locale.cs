@@ -1,6 +1,6 @@
 using System;
 
-namespace AlastairLundy.LocalizationKit;
+namespace LocalizationKit;
 
 /// <summary>
 /// A class to represent Locales.

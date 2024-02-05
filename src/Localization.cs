@@ -23,12 +23,12 @@ SOFTWARE.
 
 using System;
 using System.Collections.Generic;
+using LocalizationKit.Interfaces;
 
-using AlastairLundy.LocalizationKit.Interfaces;
 // ReSharper disable FieldCanBeMadeReadOnly.Global
 // ReSharper disable InconsistentNaming
 
-namespace AlastairLundy.LocalizationKit{
+namespace LocalizationKit{
     /// <summary>
     /// A class to represent a Localization
     /// </summary>

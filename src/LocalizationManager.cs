@@ -23,9 +23,8 @@ SOFTWARE.
 
 using System;
 using System.Collections.Generic;
-using AlastairLundy.LocalizationKit.Interfaces;
 
-namespace AlastairLundy.LocalizationKit{
+namespace LocalizationKit{
     /// <summary>
     /// A class to manage Localizations
     /// </summary>
