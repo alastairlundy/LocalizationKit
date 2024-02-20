@@ -23,6 +23,7 @@ SOFTWARE.
 
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using LocalizationKit.Interfaces;
 
 namespace LocalizationKit{
@@ -49,17 +50,22 @@ namespace LocalizationKit{
         /// <summary>
         /// Load localizations from a file using an ISettings Provider
         /// </summary>
-        /// <param name="locale">The locale of the localization to add</param>
-        /// <param name="pathToLocalizationFile">The path to the localization file.</param>
-        /// <param name="localizationFileProvider">The provider to use</param>
-        public void LoadLocalization(Locale locale, string pathToLocalizationFile, ILocalizationFileProvider localizationFileProvider)
+        /// <param name="locale">The locale of the localization to add.</param>
+        /// <param name="localizationFiles">The localization files to read localizations from.</param>
+        public void LoadLocalization(Locale locale, LocalizationFile[] localizationFiles)
         {
-            Localization localization = new Localization(locale);
+            
+            if (Localizations.ContainsKey(locale)){
+               Localizations[locale].Load(localizationFiles);
+            }
+            else
+            {
+                Localization localization = new Localization(locale);
+                localization.Load(localizationFiles);
 
-            localization.Load(localizationFileProvider, pathToLocalizationFile);
-
-            //Add the localization to the localizations list.
-            Localizations.Add(locale, localization);
+                //Add the localization to the localizations list.
+                Localizations.Add(locale, localization);
+            }
         }
 
         /// <summary>
@@ -67,41 +73,21 @@ namespace LocalizationKit{
         /// </summary>
         /// <param name="locale"></param>
         /// <returns></returns>
-        public Localization GetLocalization(string locale)
-        {
-            if (IsCaseSensitive)
-            {
-                return Localizations[new Locale(locale)];
-            }
-            else
-            {
-                return Localizations[new Locale(locale)];
-            }
-        }
-
-        /// <summary>
-        /// </summary>
-        /// <param name="locale"></param>
-        /// <returns></returns>
         public Localization GetLocalization(Locale locale)
         {
+            return Localizations[locale];
         }
+
         /// <summary>
         /// Returns a localized phrase from a localization associated with a specified locale and key.
         /// </summary>
         /// <param name="locale"></param>
         /// <param name="key"></param>
+        /// <param name="ignoreCase">Whether the case of the key should be ignored or not. - Defaults to true if not set.</param>
         /// <returns></returns>
-        public KeyValuePair<string, string> GetLocalizedPhrase(Locale locale, string key)
+        public string GetLocalizedPhrase(Locale locale, string key, bool ignoreCase = true)
         {
-            if (IsCaseSensitive)
-            {
-                return Localizations[locale].GetLocalizedPhrase(key);
-            }
-            else
-            {
-                return Localizations[locale].GetLocalizedPhrase(key);
-            }
+            return Localizations[locale].GetLocalizedPhrase(key, ignoreCase);
         }
         
         /// <summary>
