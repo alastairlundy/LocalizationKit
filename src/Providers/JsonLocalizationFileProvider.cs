@@ -51,12 +51,21 @@ namespace LocalizationKit.Providers
                 string[] lines = jsonText.Replace(" ", String.Empty).Split(Environment.NewLine.ToCharArray());
 #endif
 
-            foreach (var line in lines)
+                foreach (var line in lines)
+                {
+                    var newLine = line.Replace(" ", String.Empty);
+                    var splitLine = newLine.Split(':');
+
+                    if (splitLine.Length > 1)
+                    {
+                        list.Add(new KeyValuePair<string, string>(splitLine[0], splitLine[1]));
+                    }
+                }
+
+                return list.ToArray();
+            }
+            catch (Exception e)
             {
-                var newLine = line.Replace(" ", String.Empty);
-                var splitLine = newLine.Split(':');
-                    
-                list.Add(new KeyValuePair<string, string>(splitLine[0], splitLine[1]));
             }
 
             return list.ToArray();
