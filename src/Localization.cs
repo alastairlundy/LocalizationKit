@@ -37,11 +37,11 @@ namespace LocalizationKit{
         /// <summary>
         /// Note: This field may be renamed to LocaleCode in the future once the string LocaleCode field is removed.
         /// </summary>
-        public Locale Locale { get; set; }
+        internal Locale Locale { get; set; }
         
-        public string PathToLocalizationFile { get; set; }
-
-        public List<KeyValuePair<string, string>> Translations { get; set; }
+        internal List<LocalizationFile> LocalizationFiles { get; set; }
+        
+        internal Dictionary<string, string> Translations { get; set; }
 
         
         /// <summary>
@@ -50,44 +50,36 @@ namespace LocalizationKit{
         /// <param name="locale">The locale associated with the Localization to be loaded.</param>
         public Localization(Locale locale)
         {
-            Locale = locale; 
+            Locale = locale;
+            Translations = new Dictionary<string, string>();
         }
-        
+
         /// <summary>
         /// Create a new Localization object and load Localizations from the ISettingsProvider.
         /// </summary>
         /// <param name="locale">The locale associated with the Localization to be loaded.</param>
-        /// <param name="pathToFile"></param>
-        public Localization(Locale locale, string pathToFile)
+        /// <param name="localizationFiles"></param>
+        public Localization(Locale locale, LocalizationFile[] localizationFiles)
         {
             Locale = locale;
-            PathToLocalizationFile = pathToFile;
+            Translations = new Dictionary<string, string>();
+            Load(localizationFiles);
         }
 
         /// <summary>
         /// Load the localization
         /// </summary>
-        /// <param name="localizationFileProvider">The localizations provider to use to retrieve Localizations stored in a file.</param>
-        public void Load(ILocalizationFileProvider localizationFileProvider)
+        public void Load(LocalizationFile[] localizationFiles)
         {
-            foreach (var pair in localizationFileProvider.Get(PathToLocalizationFile))
+            foreach (LocalizationFile localizationFile in localizationFiles)
             {
-                Translations.Add(pair);
-            }
-        }
-
-        /// <summary>
-        /// Load the localization
-        /// </summary>
-        /// <param name="localizationFileProvider">The settings provider to use to retrieve Localizations stored in a file.</param>
-        /// <param name="pathToLocalizedFile"></param>
-        public void Load(ILocalizationFileProvider localizationFileProvider, string pathToLocalizedFile)
-        {
-            this.PathToLocalizationFile = pathToLocalizedFile;
-
-            foreach (var pair in localizationFileProvider.Get(PathToLocalizationFile))
-            {
-                Translations.Add(pair);
+                if (localizationFile.locale.ToString().Equals(Locale.ToString()))
+                {
+                    foreach (KeyValuePair<string, string> localizedPhrase in localizationFile.GetLocalizations())
+                    {
+                        Translations.Add(localizedPhrase.Key, localizedPhrase.Value);
+                    }
+                }
             }
         }
 
@@ -95,13 +87,14 @@ namespace LocalizationKit{
         /// Returns the Localized phrase associated with the specified Key.
         /// </summary>
         /// <param name="key">The key to use when searching for a localized phrase.</param>
+        /// <param name="ignoreCase">Whether the case of the key should be ignored or not. - Defaults to true if not set.</param>
         /// <returns>A localized phrase - Usually a translation of a word or words.</returns>
-        public KeyValuePair<string, string> GetLocalizedPhrase(string key)
+        public string GetLocalizedPhrase(string key, bool ignoreCase = true)
         {
             foreach(var pair in Translations) { 
-                if(pair.Key.Equals(key, StringComparison.OrdinalIgnoreCase))
+                if(pair.Key.Equals(key, ignoreCase ? StringComparison.OrdinalIgnoreCase : StringComparison.Ordinal))
                 {
-                    return pair;
+                    return pair.Value;
                 }
             }
 
