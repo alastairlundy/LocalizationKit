@@ -12,9 +12,6 @@
     </ItemGroup>
 
     <ItemGroup>
-      <None Update="locales\en_us.json">
-        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-      </None>
       <None Update="testing\en.json">
         <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       </None>
