@@ -34,7 +34,9 @@ namespace LocalizationKit.Providers
     {
         public KeyValuePair<string, string>[] Get(string pathToFile)
         {
-                List<KeyValuePair<string, string>> list = new();
+            try
+            {
+                List<KeyValuePair<string, string>> list = new List<KeyValuePair<string, string>>();
 
                 string jsonText = File.ReadAllText(pathToFile);
 
@@ -66,6 +68,8 @@ namespace LocalizationKit.Providers
             }
             catch (Exception e)
             {
+                Console.WriteLine(e);
+                throw;
             }
 
             return list.ToArray();
