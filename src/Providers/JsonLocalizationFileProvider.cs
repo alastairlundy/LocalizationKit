@@ -37,11 +37,13 @@ namespace LocalizationKit.Providers
                 List<KeyValuePair<string, string>> list = new();
 
                 string jsonText = File.ReadAllText(pathToFile);
-                jsonText = jsonText.Replace("{", String.Empty)
-                    .Replace("}", String.Empty)
-                    .Replace(",", String.Empty)
-                    .Replace('"', String.Empty[0])
-                    .Replace("'", String.Empty);
+
+                jsonText = jsonText.Replace("{", string.Empty);
+                jsonText = jsonText.Replace("}", string.Empty);
+                jsonText = jsonText.Replace(",", string.Empty);
+                jsonText = jsonText.Replace('"', '0');
+                jsonText = jsonText.Replace("0", string.Empty);
+                jsonText = jsonText.Replace("'", string.Empty);
 
 #if NET6_0_OR_GREATER
                 string[] lines = jsonText.Split(Environment.NewLine);
