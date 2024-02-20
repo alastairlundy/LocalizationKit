@@ -71,8 +71,6 @@ namespace LocalizationKit.Providers
                 Console.WriteLine(e);
                 throw;
             }
-
-            return list.ToArray();
         }
 
         public void WriteToFile(KeyValuePair<string, string>[] data, string pathToFile)
