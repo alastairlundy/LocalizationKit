@@ -27,7 +27,7 @@ using LocalizationKit.Providers;
 LocalizationManager localizationManager = new LocalizationManager();
 
 string path = Environment.CurrentDirectory + Path.DirectorySeparatorChar + "testing" + Path.DirectorySeparatorChar +
-              "en_us.json";
+              "en.json";
 
 localizationManager.LoadLocalization(new Locale("en_us"), path, new JsonLocalizationFileProvider());
 
