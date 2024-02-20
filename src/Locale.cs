@@ -24,7 +24,14 @@ public class Locale
     /// <returns></returns>
     public override string ToString()
     {
-        return $"{LanguageCode}_{CountryCode}".ToLower();
+        if (CountryCode.Equals(String.Empty))
+        {
+            return LanguageCode.ToLower();
+        }
+        else
+        {
+            return $"{LanguageCode}_{CountryCode}".ToLower();
+        }
     }
 
     public void Parse(string locale)
@@ -52,6 +59,11 @@ public class Locale
                 {
                     CountryCode = adjustedLocale[1].ToLower();
                 }
+            }
+            else
+            {
+                LanguageCode = locale;
+                CountryCode = String.Empty;
             }
         }
         catch (Exception exception)
