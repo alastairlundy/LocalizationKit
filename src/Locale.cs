@@ -62,7 +62,7 @@ public class Locale
     {
         try
         {
-           #if NET6_0_OR_GREATER
+#if NET6_0_OR_GREATER
             if (locale.Contains('_'))
             {
                 var adjustedLocale = locale.Split('_');
@@ -85,7 +85,7 @@ public class Locale
                     CountryCode = adjustedLocale[1].ToLower();
                 }
             }
-            #else
+#else
             if (locale.Contains("_"))
             {
                 var adjustedLocale = locale.Split('_');
@@ -108,7 +108,7 @@ public class Locale
                     CountryCode = adjustedLocale[1].ToLower();
                 }
             }
-            #endif
+#endif
             else
             {
                 if(locale.Length == 2)
