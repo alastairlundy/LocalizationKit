@@ -9,24 +9,20 @@
         <Copyright>Copyright (c) 2021-2024 Alastair Lundy</Copyright>
         <RepositoryUrl>https://github.com/alastairlundy/LocalizationKit</RepositoryUrl>
         <RepositoryType>git</RepositoryType>
-        <PackageReleaseNotes>### Changes since 5.1.0
-* Removed deprecated code 
-* Started migration away from SettingsKit's FileProvider system
-* Added ``ILocalizationFile`` and ``ILocalizationFileProvider``
-* Made ``CountryCode`` part of ``Locale`` optional
-* Removed dependency on SettingsKit
-* Improved Json localization file support - This now supports localization files with implicit Key Value Pairs e.g. "Key":"Value". Explicit Key Value Pair separation  (e.g. "Key": "", "Value":"" ) is no longer supported
-* Re-added support for .NET Standard 2.0
-* Add explicit TFM for .NET 8
-* Renamed root namespace to ``LocalizationKit``
-
-## Notes
-* Upcoming 6.0 pre-releases intend to re-add Text file localization support, Xml file localization support, and add Resource file localization support</PackageReleaseNotes>
+        <PackageReleaseNotes>### Changes since 6.0.0 Alpha 1
+* Enable nullable use of CountryCode
+* Remove ILocalizationFile
+* Add LocalizationFile - This replaces ILocalizationFile
+* Fixed issue with incorrect Locale being returned from ToString() method
+* Update Localization class to work with LocalizationFile
+* Continue to remove obsolete code in LocalizationManager
+* Update LocalizationManager class to work with Localizations and LocalizationFile
+* Fixed issues with JsonLocalizationFileProvider</PackageReleaseNotes>
         <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
         <AssemblyVersion>6.0.0.0</AssemblyVersion>
         <FileVersion>6.0.0.0</FileVersion>
         <Version>6.0.0</Version>
-        <PackageVersion>6.0.0-alpha.1</PackageVersion>
+        <PackageVersion>6.0.0-alpha.2</PackageVersion>
         <PackageLicenseFile>LICENSE.md</PackageLicenseFile>
         <LangVersion>default</LangVersion>
         <PackageReadmeFile>README.md</PackageReadmeFile>
