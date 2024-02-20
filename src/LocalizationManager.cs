@@ -80,22 +80,11 @@ namespace LocalizationKit{
         }
 
         /// <summary>
-        /// Returns a localized phrase from a localization associated with a specified locale and key.
         /// </summary>
         /// <param name="locale"></param>
-        /// <param name="key"></param>
         /// <returns></returns>
-        [Obsolete("This function is deprecated as it relies on a deprecated parameter.")]
-        public KeyValuePair<string, string> GetLocalizedPhrase(string locale, string key)
+        public Localization GetLocalization(Locale locale)
         {
-            if (IsCaseSensitive)
-            {
-                return Localizations[new Locale(locale)].GetLocalizedPhrase(key);
-            }
-            else
-            {
-                return Localizations[new Locale(locale.ToLower())].GetLocalizedPhrase(key);
-            }
         }
         /// <summary>
         /// Returns a localized phrase from a localization associated with a specified locale and key.
