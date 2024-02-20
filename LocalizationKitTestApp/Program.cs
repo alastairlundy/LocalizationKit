@@ -29,8 +29,12 @@ LocalizationManager localizationManager = new LocalizationManager();
 string path = Environment.CurrentDirectory + Path.DirectorySeparatorChar + "testing" + Path.DirectorySeparatorChar +
               "en.json";
 
-localizationManager.LoadLocalization(new Locale("en_us"), path, new JsonLocalizationFileProvider());
+Locale locale = new Locale("en");
 
-var localization = localizationManager.GetLocalization("en_us");
+LocalizationFile enFile = new LocalizationFile(locale, new JsonLocalizationFileProvider(), path);
 
-Console.WriteLine(localization.GetLocalizedPhrase("earth.flatness").Value);
+localizationManager.LoadLocalization(locale, new []{enFile});
+
+var localization = localizationManager.GetLocalization(locale);
+
+Console.WriteLine(localization.GetLocalizedPhrase("earth.flatness"));
