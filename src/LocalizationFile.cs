@@ -5,35 +5,55 @@ namespace LocalizationKit;
 
 public class LocalizationFile
 {
-    public LocalizationFile(Locale locale){
-        this.locale = locale;
-    }
+    protected Dictionary<string, string> Localizations;
+    
+    internal string PathToFile { get; set; }
+    
+    internal Locale locale { get; }
+    
+    internal ILocalizationFileProvider FileProvider { get; set; }
 
     public LocalizationFile(Locale locale, ILocalizationFileProvider localizationFileProvider, string pathToLocalizationFile)
     {
         this.locale = locale;
-        Load(localizationFileProvider, pathToLocalizationFile);
+
+        PathToFile = pathToLocalizationFile;
+        this.FileProvider = localizationFileProvider;
+
+        Localizations = new Dictionary<string, string>();
+        
+        foreach (var localizedPhrase in localizationFileProvider.Get(pathToLocalizationFile))
+        {
+            Localizations.Add(localizedPhrase.Key, localizedPhrase.Value);
+        }
     }
     
-    public Locale locale { get; }
-
-    public void Load(ILocalizationFileProvider localizationFileProvider, string pathToLocalizationFile)
+    /// <summary>
+    /// Return the loaded localizations.
+    /// </summary>
+    /// <returns></returns>
+    public Dictionary<string, string> GetLocalizations()
     {
-        
+        return Localizations;
+    }
+    
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <param name="key"></param>
+    /// <returns></returns>
+    public KeyValuePair<string, string> GetKeyValuePair(string key)
+    {
+        return new KeyValuePair<string, string>(key, GetValue(key));
     }
 
-    public KeyValuePair<string, string>[] Get()
+    /// <summary>
+    /// Returns the value associated with the key specified.
+    /// </summary>
+    /// <param name="key"></param>
+    /// <returns></returns>
+    public string GetValue(string key)
     {
-        
-    }
-
-    public string Get(string key)
-    {
-        
-    }
-
-    internal void SaveFile()
-    {
-        
+        return Localizations[key];
     }
 }
