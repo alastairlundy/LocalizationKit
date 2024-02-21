@@ -43,7 +43,7 @@ public class TextLocalizationFileProvider : ILocalizationFileProvider
 #if NET6_0_OR_GREATER
             string[] lines = text.Split(Environment.NewLine);
 #else
-            string[] lines = jsonText.Replace(" ", String.Empty).Split(Environment.NewLine.ToCharArray());
+            string[] lines = text.Replace(" ", String.Empty).Split(Environment.NewLine.ToCharArray());
 #endif
             foreach (var line in lines)
             {
