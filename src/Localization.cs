@@ -29,15 +29,16 @@ using LocalizationKit.Interfaces;
 // ReSharper disable InconsistentNaming
 
 namespace LocalizationKit{
+    
     /// <summary>
     /// A class to represent a Localization
     /// </summary>
     public class Localization {
 
         /// <summary>
-        /// Note: This field may be renamed to LocaleCode in the future once the string LocaleCode field is removed.
+        ///
         /// </summary>
-        public Locale Locale { get; internal set; }
+        public Locale LocaleCode { get; internal set; }
         
         public List<LocalizationFile> LocalizationFiles { get; internal set; }
         
@@ -50,7 +51,7 @@ namespace LocalizationKit{
         /// <param name="locale">The locale associated with the Localization to be loaded.</param>
         public Localization(Locale locale)
         {
-            Locale = locale;
+            LocaleCode = locale;
             Translations = new Dictionary<string, string>();
         }
 
@@ -61,19 +62,19 @@ namespace LocalizationKit{
         /// <param name="localizationFiles"></param>
         public Localization(Locale locale, LocalizationFile[] localizationFiles)
         {
-            Locale = locale;
+            LocaleCode = locale;
             Translations = new Dictionary<string, string>();
             Load(localizationFiles);
         }
 
         /// <summary>
-        /// Load the localization
+        /// Load the localizations stored in localization files
         /// </summary>
         public void Load(LocalizationFile[] localizationFiles)
         {
             foreach (LocalizationFile localizationFile in localizationFiles)
             {
-                if (localizationFile.locale.ToString().Equals(Locale.ToString()))
+                if (localizationFile.LocaleCode.ToString().Equals(LocaleCode.ToString()))
                 {
                     foreach (KeyValuePair<string, string> localizedPhrase in localizationFile.GetLocalizations())
                     {

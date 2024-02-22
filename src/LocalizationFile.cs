@@ -9,13 +9,13 @@ public class LocalizationFile
     
     internal string PathToFile { get; set; }
     
-    internal Locale locale { get; }
+    public Locale LocaleCode { get; internal set; }
     
     internal ILocalizationFileProvider FileProvider { get; set; }
 
     public LocalizationFile(Locale locale, ILocalizationFileProvider localizationFileProvider, string pathToLocalizationFile)
     {
-        this.locale = locale;
+        this.LocaleCode = locale;
 
         PathToFile = pathToLocalizationFile;
         this.FileProvider = localizationFileProvider;
