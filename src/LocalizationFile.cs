@@ -7,7 +7,7 @@ public class LocalizationFile
 {
     protected Dictionary<string, string> Localizations;
     
-    internal string PathToFile { get; set; }
+    public string PathToFile { get; internal set; }
     
     public Locale LocaleCode { get; internal set; }
     
