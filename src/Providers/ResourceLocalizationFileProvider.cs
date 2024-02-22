@@ -83,6 +83,23 @@ public class ResourceLocalizationFileProvider : ILocalizationFileProvider
 
     public void WriteToFile(KeyValuePair<string, string>[] data, string pathToFile)
     {
-        throw new System.NotImplementedException();
+        try
+        {
+            ResourceWriter resourceWriter = new ResourceWriter(pathToFile);
+
+            foreach (KeyValuePair<string, string> pair in data)
+            {
+                resourceWriter.AddResource(pair.Key, pair.Value);
+            }
+            
+            resourceWriter.Generate();
+            
+            resourceWriter.Close();
+        }
+        catch(Exception exception)
+        {
+            Console.WriteLine(exception);
+            throw;
+        }
     }
 }
