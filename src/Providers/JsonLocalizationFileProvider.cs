@@ -40,11 +40,10 @@ namespace LocalizationKit.Providers
 
                 string jsonText = File.ReadAllText(pathToFile);
 
+                jsonText = jsonText.Replace('"', '}');
                 jsonText = jsonText.Replace("{", string.Empty);
                 jsonText = jsonText.Replace("}", string.Empty);
                 jsonText = jsonText.Replace(",", string.Empty);
-                jsonText = jsonText.Replace('"', '0');
-                jsonText = jsonText.Replace("0", string.Empty);
                 jsonText = jsonText.Replace("'", string.Empty);
 
 #if NET6_0_OR_GREATER
