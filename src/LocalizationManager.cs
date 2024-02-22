@@ -51,7 +51,6 @@ namespace LocalizationKit{
         /// <param name="localizationFiles">The localization files to read localizations from.</param>
         public void LoadLocalization(Locale locale, LocalizationFile[] localizationFiles)
         {
-            
             if (Localizations.ContainsKey(locale)){
                Localizations[locale].Load(localizationFiles);
             }
