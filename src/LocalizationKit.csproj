@@ -9,20 +9,14 @@
         <Copyright>Copyright (c) 2021-2024 Alastair Lundy</Copyright>
         <RepositoryUrl>https://github.com/alastairlundy/LocalizationKit</RepositoryUrl>
         <RepositoryType>git</RepositoryType>
-        <PackageReleaseNotes>### Changes since 6.0.0 Alpha 1
-* Enable nullable use of CountryCode
-* Remove ILocalizationFile
-* Add LocalizationFile - This replaces ILocalizationFile
-* Fixed issue with incorrect Locale being returned from ToString() method
-* Update Localization class to work with LocalizationFile
-* Continue to remove obsolete code in LocalizationManager
-* Update LocalizationManager class to work with Localizations and LocalizationFile
-* Fixed issues with JsonLocalizationFileProvider</PackageReleaseNotes>
+        <PackageReleaseNotes>### Changes since 6.0.0 Alpha 2
+* Added TextLocalizationFileProvider
+* Added ResourceLocalizationFileProvider - This is experimental</PackageReleaseNotes>
         <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
         <AssemblyVersion>6.0.0.0</AssemblyVersion>
         <FileVersion>6.0.0.0</FileVersion>
         <Version>6.0.0</Version>
-        <PackageVersion>6.0.0-alpha.2</PackageVersion>
+        <PackageVersion>6.0.0-alpha.3</PackageVersion>
         <PackageLicenseFile>LICENSE.md</PackageLicenseFile>
         <LangVersion>default</LangVersion>
         <PackageReadmeFile>README.md</PackageReadmeFile>
