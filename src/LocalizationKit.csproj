@@ -9,14 +9,13 @@
         <Copyright>Copyright (c) 2021-2024 Alastair Lundy</Copyright>
         <RepositoryUrl>https://github.com/alastairlundy/LocalizationKit</RepositoryUrl>
         <RepositoryType>git</RepositoryType>
-        <PackageReleaseNotes>### Changes since 6.0.0 Alpha 2
-* Added TextLocalizationFileProvider
-* Added ResourceLocalizationFileProvider - This is experimental</PackageReleaseNotes>
+        <PackageReleaseNotes>### Changes since 6.0.0 Alpha 3
+* Made several Localization get properties public that LocalizationKit.Integrations.Azure relied on</PackageReleaseNotes>
         <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
         <AssemblyVersion>6.0.0.0</AssemblyVersion>
         <FileVersion>6.0.0.0</FileVersion>
         <Version>6.0.0</Version>
-        <PackageVersion>6.0.0-alpha.3</PackageVersion>
+        <PackageVersion>6.0.0-alpha.4</PackageVersion>
         <PackageLicenseFile>LICENSE.md</PackageLicenseFile>
         <LangVersion>default</LangVersion>
         <PackageReadmeFile>README.md</PackageReadmeFile>
