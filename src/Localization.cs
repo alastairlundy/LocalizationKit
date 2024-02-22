@@ -37,11 +37,11 @@ namespace LocalizationKit{
         /// <summary>
         /// Note: This field may be renamed to LocaleCode in the future once the string LocaleCode field is removed.
         /// </summary>
-        internal Locale Locale { get; set; }
+        public Locale Locale { get; internal set; }
         
-        internal List<LocalizationFile> LocalizationFiles { get; set; }
+        public List<LocalizationFile> LocalizationFiles { get; internal set; }
         
-        internal Dictionary<string, string> Translations { get; set; }
+        public Dictionary<string, string> Translations { get; internal set; }
 
         
         /// <summary>
