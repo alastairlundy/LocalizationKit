@@ -11,13 +11,16 @@
         <RepositoryType>git</RepositoryType>
         <PackageReleaseNotes>### Changes since 5.1.0
 * Update SettingsKit from 5.0.0 to 5.0.1
-* Allow usage of Locale with only a LanguageCode without providing a CountryCode - This would previously have caused an exception
-* Fixed an issue where Locale without a CountryCode would return an incorrect string from the ToString() method</PackageReleaseNotes>
+### Changes since 5.1.1
+* Updated SettingsKit from 5.0.1 to 5.1.0
+
+## Notes
+* Final update for LocalizationKit 5.x - All future updates will be focussed on LocalizationKit 6.x* Fixed an issue where Locale without a CountryCode would return an incorrect string from the ToString() method</PackageReleaseNotes>
         <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
-        <AssemblyVersion>5.1.0.0</AssemblyVersion>
-        <FileVersion>5.1.1.0</FileVersion>
-        <Version>5.1.1</Version>
-        <PackageVersion>5.1.1</PackageVersion>
+        <AssemblyVersion>5.1.2.0</AssemblyVersion>
+        <FileVersion>5.1.2.0</FileVersion>
+        <Version>5.1.2</Version>
+        <PackageVersion>5.1.2</PackageVersion>
         <PackageLicenseFile>LICENSE.md</PackageLicenseFile>
         <LangVersion>default</LangVersion>
         <PackageReadmeFile>README.md</PackageReadmeFile>
