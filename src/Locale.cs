@@ -31,6 +31,8 @@ namespace LocalizationKit;
 /// </summary>
 public class Locale
 {
+    public string SeparatorCharacterToUse { get; set; }
+    
     /// <summary>
     /// A 2 digit language code indicating which language the locale belongs to (e.g. en_us uses the en language code).
     /// </summary>
@@ -54,9 +56,11 @@ public class Locale
         }
         else
         {
-            return $"{LanguageCode}_{CountryCode}".ToLower();
+            return $"{LanguageCode}{SeparatorCharacterToUse}{CountryCode}".ToLower();
         }
     }
+    
+    
 
     public void Parse(string locale)
     {
@@ -69,7 +73,7 @@ public class Locale
 
                 LanguageCode = adjustedLocale[0].ToLower();
 
-                if (adjustedLocale[1].Equals("_"))
+                if (adjustedLocale[1].Equals(SeparatorCharacterToUse))
                 {
                     if (adjustedLocale.Length > 2)
                     {
@@ -88,11 +92,11 @@ public class Locale
 #else
             if (locale.Contains("_"))
             {
-                var adjustedLocale = locale.Split('_');
+                var adjustedLocale = locale.Split(SeparatorCharacterToUse[0]);
 
                 LanguageCode = adjustedLocale[0].ToLower();
 
-                if (adjustedLocale[1].Equals("_"))
+                if (adjustedLocale[1].Equals(SeparatorCharacterToUse))
                 {
                     if (adjustedLocale.Length > 2)
                     {
@@ -124,11 +128,16 @@ public class Locale
             throw;
         }
     }
-
+    
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <param name="locale"></param>
     public Locale(string locale)
     {
         LanguageCode = "";
         Parse(locale);
+        SeparatorCharacterToUse = "-";
     }
     
     /// <summary>
@@ -136,9 +145,11 @@ public class Locale
     /// </summary>
     /// <param name="languageCode"></param>
     /// <param name="countryCode"></param>
-    public Locale(string languageCode, string countryCode)
+    /// <param name="separatorCharacterToUse"></param>
+    public Locale(string languageCode, string countryCode, string separatorCharacterToUse)
     {
         LanguageCode = languageCode;
         CountryCode = countryCode;
+        SeparatorCharacterToUse = separatorCharacterToUse;
     }
 }
