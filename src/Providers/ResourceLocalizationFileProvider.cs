@@ -68,7 +68,6 @@ public class ResourceLocalizationFileProvider : ILocalizationFileProvider
                         .Value));
             }
             
-            reader.GetEnumerator().Reset();
             reader.Dispose();
             reader.Close();
 
