@@ -31,7 +31,7 @@ public static class LocalizationManagerExtensions
 
         foreach (var translation in localizationToUse.Translations)
         {
-            newLocalization.Translations.Add(localizationToUse.TranslatePhraseWithAzure(azureApiKey, azureRegion, newLocale, translation));
+            newLocalization.Translations.Add(translation.Key, localizationToUse.TranslatePhraseWithAzure(azureApiKey, azureRegion, newLocale, translation).Value);
         }
 
         return newLocalization;
