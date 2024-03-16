@@ -25,6 +25,15 @@ namespace LocalizationKit.Integrations.Azure;
 
 public static class LocalizationManagerExtensions
 {
+    /// <summary>
+    /// Uses Azure's AI powered cloud translation service to translate a Localization to a specified Locale
+    /// </summary>
+    /// <param name="localizationManager"></param>
+    /// <param name="localizationToUse">The localization to be translated.</param>
+    /// <param name="azureApiKey">Your Azure API key for the AI powered translation service.</param>
+    /// <param name="azureRegion">The Azure Region you are using for this.</param>
+    /// <param name="newLocale">The locale to be translated to.</param>
+    /// <returns></returns>
     public static Localization GenerateLocalizationWithAzure(this LocalizationManager localizationManager, Localization localizationToUse, string azureApiKey, string azureRegion, Locale newLocale)
     {
         Localization newLocalization = new Localization(newLocale);
