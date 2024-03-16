@@ -9,15 +9,15 @@
         <Copyright>Copyright (c) 2023-2024 Alastair Lundy</Copyright>
         <RepositoryUrl>https://github.com/alastairlundy/LocalizationKit</RepositoryUrl>
         <RepositoryType>git</RepositoryType>
-        <PackageReleaseNotes>### Changes since 1.0.0 Beta 1
-* Updated TFM to use .NET Standard 2 instead of .NET Standard 1
-* Updated to LocalizationKit 6.0.0 Alpha 1</PackageReleaseNotes>
-        <Version>1.0.0-beta.2</Version>
+        <PackageReleaseNotes>### Changes since 1.0.0 Beta 2
+* Updated LocalizationKit to 6.0.0 Beta 1 from 6.0.0 Alpha 3
+* Fixed an issue with translating a Localization</PackageReleaseNotes>
+        <Version>1.0.0-beta.3</Version>
         <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
         <PackageLicenseFile>LICENSE.md</PackageLicenseFile>
         <LangVersion>default</LangVersion>
         <PackageReadmeFile>README.md</PackageReadmeFile>
-        <TargetFrameworks>net6.0;net8.0;netstandard2.0</TargetFrameworks>
+        <TargetFrameworks>net8.0;netstandard2.0;net6.0</TargetFrameworks>
         <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
     </PropertyGroup>
 
@@ -34,6 +34,15 @@
         </None>
         <None Include="../README.md" Pack="true" PackagePath="\" />
         <None Remove="LocalizationKitTest\**" />
+        <None Remove="LocalizationKit.Integrations.Azure\**" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Compile Remove="LocalizationKit.Integrations.Azure\**" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <EmbeddedResource Remove="LocalizationKit.Integrations.Azure\**" />
     </ItemGroup>
 
 
