@@ -47,18 +47,19 @@ namespace LocalizationKit{
         /// <summary>
         /// Load localizations from a file using an ISettings Provider
         /// </summary>
-        /// <param name="locale">The locale of the localization to add.</param>
-        /// <param name="localizationFiles">The localization files to read localizations from.</param>
-        public void LoadLocalization(Locale locale, LocalizationFile[] localizationFiles)
+        /// <param name="locale"></param>
+        /// <param name="localization"></param>
+        public void LoadLocalization(Locale locale, Localization localization)
         {
             if (Localizations.ContainsKey(locale)){
-               Localizations[locale].Load(localizationFiles);
+
+                foreach (var keyValuePair in localization.Localizations)
+                {
+                    Localizations[locale].Load(keyValuePair);
+                }
             }
             else
             {
-                Localization localization = new Localization(locale);
-                localization.Load(localizationFiles);
-
                 //Add the localization to the localizations list.
                 Localizations.Add(locale, localization);
             }

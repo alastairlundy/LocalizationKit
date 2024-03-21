@@ -31,7 +31,7 @@ string path = Environment.CurrentDirectory + Path.DirectorySeparatorChar + "test
 
 Locale locale = new Locale("en");
 
-LocalizationFile enFile = new LocalizationFile(locale, new JsonLocalizationFileProvider(), path);
+//LocalizationFile enFile = new LocalizationFile(locale, new JsonLocalizationFileProvider(), path);
 //LocalizationFile enResXFile = new LocalizationFile(locale, new ResourceLocalizationFileProvider(), path);
 
 localizationManager.LoadLocalization(locale, new []{enFile});

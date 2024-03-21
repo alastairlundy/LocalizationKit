@@ -40,8 +40,6 @@ namespace LocalizationKit{
         /// </summary>
         public Locale LocaleCode { get; internal set; }
         
-        public List<LocalizationFile> LocalizationFiles { get; internal set; }
-        
         public Dictionary<string, string> Localizations { get; internal set; }
 
         
@@ -53,18 +51,6 @@ namespace LocalizationKit{
         {
             LocaleCode = locale;
             Localizations = new Dictionary<string, string>();
-        }
-
-        /// <summary>
-        /// Create a new Localization object and load Localizations from the ISettingsProvider.
-        /// </summary>
-        /// <param name="locale">The locale associated with the Localization to be loaded.</param>
-        /// <param name="localizationFiles"></param>
-        public Localization(Locale locale, LocalizationFile[] localizationFiles)
-        {
-            LocaleCode = locale;
-            Localizations = new Dictionary<string, string>();
-            Load(localizationFiles);
         }
 
         /// <summary>
@@ -88,32 +74,6 @@ namespace LocalizationKit{
             foreach (var keyValuePair in localizations)
             {
                 Load(keyValuePair);
-            }
-        }
-        
-        /// <summary>
-        /// Loads a single localization file.
-        /// </summary>
-        /// <param name="localizationFile"></param>
-        public void Load(LocalizationFile localizationFile)
-        {
-            Load(new LocalizationFile[]{ localizationFile});
-        }
-        
-        /// <summary>
-        /// Load the localizations stored in localization.
-        /// </summary>
-        public void Load(LocalizationFile[] localizationFiles)
-        {
-            foreach (LocalizationFile localizationFile in localizationFiles)
-            {
-                if (localizationFile.LocaleCode.ToString().Equals(LocaleCode.ToString()))
-                {
-                    foreach (KeyValuePair<string, string> localizedPhrase in localizationFile.GetLocalizations())
-                    {
-                        Localizations.Add(localizedPhrase.Key, localizedPhrase.Value);
-                    }
-                }
             }
         }
 
