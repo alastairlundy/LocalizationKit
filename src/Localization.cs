@@ -52,7 +52,40 @@ namespace LocalizationKit{
             LocaleCode = locale;
             Phrases = new Dictionary<string, string>();
         }
+        
+        /// <summary>
+        /// Create a new Localization object and load Localizations.
+        /// </summary>
+        /// <param name="locale"></param>
+        /// <param name="phrases"></param>
+        public Localization(Locale locale, KeyValuePair<string, string>[] phrases)
+        {
+            LocaleCode = locale;
+            Phrases = new Dictionary<string, string>();
 
+            foreach (var phrase in phrases)
+            {
+               Load(phrase);
+            }
+        }
+
+        /// <summary>
+        ///  Create a new Localization object and load Localizations from the ILocalizationFileProvider.
+        /// </summary>
+        /// <param name="locale"></param>
+        /// <param name="localizationFileProvider"></param>
+        public Localization(Locale locale, ILocalizationFileProvider localizationFileProvider, string pathToFile)
+        {
+            LocaleCode = locale;
+            Phrases = new Dictionary<string, string>();
+
+           KeyValuePair<string, string>[] data = localizationFileProvider.Get(pathToFile);
+
+           foreach (var phrase in data)
+           {
+               Load(phrase);
+           }
+        }
         /// <summary>
         /// Add a single KeyValuePair to the localizations.
         /// </summary>
