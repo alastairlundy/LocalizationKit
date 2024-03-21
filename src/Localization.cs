@@ -101,7 +101,6 @@ namespace LocalizationKit{
         public void Clear()
         {
             Phrases.Clear();
-            LocalizationFiles.Clear();
         }
     }
 }
