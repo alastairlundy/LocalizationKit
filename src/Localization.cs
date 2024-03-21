@@ -134,5 +134,14 @@ namespace LocalizationKit{
 
             throw new KeyNotFoundException();
         }
+
+        /// <summary>
+        /// Clears the Localizations stored.
+        /// </summary>
+        public void Clear()
+        {
+            Localizations.Clear();
+            LocalizationFiles.Clear();
+        }
     }
 }
