@@ -44,7 +44,7 @@ namespace LocalizationKit{
 
         
         /// <summary>
-        /// Create a new Localization object and load Localizations from the ISettingsProvider.
+        /// Create a new Localization object.
         /// </summary>
         /// <param name="locale">The locale associated with the Localization to be loaded.</param>
         public Localization(Locale locale)
