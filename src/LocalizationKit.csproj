@@ -9,14 +9,19 @@
         <Copyright>Copyright (c) 2021-2024 Alastair Lundy</Copyright>
         <RepositoryUrl>https://github.com/alastairlundy/LocalizationKit</RepositoryUrl>
         <RepositoryType>git</RepositoryType>
-        <PackageReleaseNotes>### Changes since 6.0.0 Alpha 4
-* Added the ability to customize the Locale Separator char when creating a new instance of the ``Locale`` class.
-* Changed the default Locale Separator Char to be a ``-`` instead of ``_``</PackageReleaseNotes>
+        <PackageReleaseNotes>### Changes since 6.0.0 Beta 1
+* Ported Xml file support from SettingsKit 5.x - This is called ``XmlLocalizationFileProvider``
+* Removed ``LocalizationFile`` class to make working with Localizations easier and less cumbersome
+* Added methods to make it easier to add Localization Phrases to ``Localization`` classes.
+* Re-added method to allow directly adding Localizations from ``ILocalizationFileProvider`` objects into ``Localization`` classes.
+* Updated LocalizationManager class to be compatible with the aforementioned changes
+* Made it easier to access ``LocalizationManager`` class's internal Dictionary
+* Renamed ``Localization`` class' Dictionary to ``Phrases`` to avoid conflicts and reduce confusion</PackageReleaseNotes>
         <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
         <AssemblyVersion>6.0.0.0</AssemblyVersion>
         <FileVersion>6.0.0.0</FileVersion>
         <Version>6.0.0</Version>
-        <PackageVersion>6.0.0-beta.1</PackageVersion>
+        <PackageVersion>6.0.0-beta.2</PackageVersion>
         <PackageLicenseFile>LICENSE.md</PackageLicenseFile>
         <LangVersion>default</LangVersion>
         <PackageReadmeFile>README.md</PackageReadmeFile>
