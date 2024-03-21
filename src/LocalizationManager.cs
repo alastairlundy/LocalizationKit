@@ -45,7 +45,7 @@ namespace LocalizationKit{
         }
 
         /// <summary>
-        /// Load localizations from a file using an ISettings Provider
+        /// Load a Localization
         /// </summary>
         /// <param name="locale"></param>
         /// <param name="localization"></param>
