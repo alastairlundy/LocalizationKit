@@ -29,7 +29,7 @@ namespace LocalizationKit{
     /// </summary>
     public class LocalizationManager
     {
-        protected Dictionary<Locale, Localization> Localizations;
+        public Dictionary<Locale, Localization> Localizations { get; protected set; }
         
         public bool IsCaseSensitive { get; }
         
