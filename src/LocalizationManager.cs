@@ -101,13 +101,13 @@ namespace LocalizationKit{
         /// Gets a list of Locales Stored in the LocalizationManager
         /// </summary>
         /// <returns></returns>
-        public string[] GetLocalesStored()
+        public Locale[] GetLocalesStored()
         {
-            List<string> list = new List<string>();
+            List<Locale> list = new List<Locale>();
             
             foreach (var localization in Localizations)
             {
-                list.Add(localization.Key.ToString());
+                list.Add(localization.Key);
             }
 
             return list.ToArray();
