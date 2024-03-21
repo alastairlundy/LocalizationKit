@@ -42,7 +42,7 @@ namespace LocalizationKit{
         
         public List<LocalizationFile> LocalizationFiles { get; internal set; }
         
-        public Dictionary<string, string> Translations { get; internal set; }
+        public Dictionary<string, string> Localizations { get; internal set; }
 
         
         /// <summary>
@@ -52,7 +52,7 @@ namespace LocalizationKit{
         public Localization(Locale locale)
         {
             LocaleCode = locale;
-            Translations = new Dictionary<string, string>();
+            Localizations = new Dictionary<string, string>();
         }
 
         /// <summary>
@@ -63,7 +63,7 @@ namespace LocalizationKit{
         public Localization(Locale locale, LocalizationFile[] localizationFiles)
         {
             LocaleCode = locale;
-            Translations = new Dictionary<string, string>();
+            Localizations = new Dictionary<string, string>();
             Load(localizationFiles);
         }
 
@@ -78,7 +78,7 @@ namespace LocalizationKit{
                 {
                     foreach (KeyValuePair<string, string> localizedPhrase in localizationFile.GetLocalizations())
                     {
-                        Translations.Add(localizedPhrase.Key, localizedPhrase.Value);
+                        Localizations.Add(localizedPhrase.Key, localizedPhrase.Value);
                     }
                 }
             }
@@ -92,7 +92,7 @@ namespace LocalizationKit{
         /// <returns>A localized phrase - Usually a translation of a word or words.</returns>
         public string GetLocalizedPhrase(string key, bool ignoreCase = true)
         {
-            foreach(var pair in Translations) { 
+            foreach(var pair in Localizations) { 
                 if(pair.Key.Equals(key, ignoreCase ? StringComparison.OrdinalIgnoreCase : StringComparison.Ordinal))
                 {
                     return pair.Value;
