@@ -86,15 +86,29 @@ namespace LocalizationKit{
                Load(phrase);
            }
         }
+
+        /// <summary>
+        /// Add a single Key and a single Value to the localizations.
+        /// </summary>
+        /// <param name="key"></param>
+        /// <param name="value"></param>
+        public void Load(string key, string value)
+        {
+            if (!Phrases.ContainsKey(key))
+            {
+                Phrases.Add(key, value);
+            }
+        }
+        
         /// <summary>
         /// Add a single KeyValuePair to the localizations.
         /// </summary>
-        /// <param name="localization"></param>
-        public void Load(KeyValuePair<string, string> localization)
+        /// <param name="phrase"></param>
+        public void Load(KeyValuePair<string, string> phrase)
         {
-            if (!Phrases.ContainsKey(localization.Key))
+            if (!Phrases.ContainsKey(phrase.Key))
             {
-                Phrases.Add(localization.Key, localization.Value);
+                Phrases.Add(phrase.Key, phrase.Value);
             }
         }
         
