@@ -99,6 +99,9 @@ namespace LocalizationKit{
         {
             Load(new LocalizationFile[]{ localizationFile});
         }
+        
+        /// <summary>
+        /// Load the localizations stored in localization.
         /// </summary>
         public void Load(LocalizationFile[] localizationFiles)
         {
