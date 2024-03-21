@@ -87,15 +87,6 @@ namespace LocalizationKit{
             return Localizations[locale].GetLocalizedPhrase(key, ignoreCase);
         }
         
-        /// <summary>
-        /// Return all localizations as a Dictionary.
-        /// </summary>
-        /// <returns></returns>
-        public Dictionary<Locale, Localization> ToDictionary()
-        {
-            return Localizations;
-        }
-        
 
         /// <summary>
         /// Gets a list of Locales Stored in the LocalizationManager
