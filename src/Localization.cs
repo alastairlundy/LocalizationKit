@@ -68,7 +68,37 @@ namespace LocalizationKit{
         }
 
         /// <summary>
-        /// Load the localizations stored in localization files
+        /// Add a single KeyValuePair to the localizations.
+        /// </summary>
+        /// <param name="localization"></param>
+        public void Load(KeyValuePair<string, string> localization)
+        {
+            if (!Localizations.ContainsKey(localization.Key))
+            {
+                Localizations.Add(localization.Key, localization.Value);
+            }
+        }
+        
+        /// <summary>
+        /// Add an array of Localization KeyValuePairs
+        /// </summary>
+        /// <param name="localizations"></param>
+        public void Load(KeyValuePair<string, string>[] localizations)
+        {
+            foreach (var keyValuePair in localizations)
+            {
+                Load(keyValuePair);
+            }
+        }
+        
+        /// <summary>
+        /// Loads a single localization file.
+        /// </summary>
+        /// <param name="localizationFile"></param>
+        public void Load(LocalizationFile localizationFile)
+        {
+            Load(new LocalizationFile[]{ localizationFile});
+        }
         /// </summary>
         public void Load(LocalizationFile[] localizationFiles)
         {
