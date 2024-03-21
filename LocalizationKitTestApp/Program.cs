@@ -34,7 +34,7 @@ Locale locale = new Locale("en");
 //LocalizationFile enFile = new LocalizationFile(locale, new JsonLocalizationFileProvider(), path);
 //LocalizationFile enResXFile = new LocalizationFile(locale, new ResourceLocalizationFileProvider(), path);
 
-localizationManager.LoadLocalization(locale, new []{enFile});
+localizationManager.LoadLocalization(locale, new Localization(locale));
 
 var localization = localizationManager.GetLocalization(locale);
 
