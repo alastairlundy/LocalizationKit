@@ -53,7 +53,7 @@ namespace LocalizationKit{
         {
             if (Localizations.ContainsKey(locale)){
 
-                foreach (var keyValuePair in localization.Localizations)
+                foreach (var keyValuePair in localization.Phrases)
                 {
                     Localizations[locale].Load(keyValuePair);
                 }
