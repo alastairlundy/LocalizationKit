@@ -22,6 +22,7 @@ SOFTWARE.
  */
 
 using System;
+using System.Collections;
 using System.Collections.Generic;
 
 using System.Reflection;
@@ -57,15 +58,18 @@ public class ResourceLocalizationFileProvider : ILocalizationFileProvider
 //            ResourceSet set = resourceManager.GetResourceSet(Thread.CurrentThread.CurrentUICulture, false, true);
 
             ResourceReader reader = new ResourceReader(resourceManager.GetStream(pathToFile) ?? throw new NullReferenceException());
-            
-            while (reader.GetEnumerator().MoveNext())
+
+            IDictionaryEnumerator readerEnumerator = reader.GetEnumerator();
+            using var readerEnumerator1 = readerEnumerator as IDisposable;
+
+            while (readerEnumerator.MoveNext())
             {
-                list.Add(new KeyValuePair<string, string>((string)reader.GetEnumerator()
-                        .Key,
-                    (string)reader.GetEnumerator()
+                list.Add(new KeyValuePair<string, string>((string)readerEnumerator.Key,
+                    (string)readerEnumerator
                         .Value));
             }
             
+            readerEnumerator.Reset();
             reader.Dispose();
             reader.Close();
 
