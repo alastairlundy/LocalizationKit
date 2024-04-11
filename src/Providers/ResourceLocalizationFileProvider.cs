@@ -35,8 +35,6 @@ public class ResourceLocalizationFileProvider : ILocalizationFileProvider
 {
     public KeyValuePair<string, string>[] Get(string pathToFile)
     {
-        try
-        {
             List<KeyValuePair<string, string>> list = new List<KeyValuePair<string, string>>();
 
             string baseName = pathToFile;
@@ -72,18 +70,10 @@ public class ResourceLocalizationFileProvider : ILocalizationFileProvider
             reader.Close();
 
             return list.ToArray();
-        }
-        catch(Exception exception)
-        {
-            Console.WriteLine(exception);
-            throw;
-        }
     }
 
     public void WriteToFile(KeyValuePair<string, string>[] data, string pathToFile)
     {
-        try
-        {
             ResourceWriter resourceWriter = new ResourceWriter(pathToFile);
 
             foreach (KeyValuePair<string, string> pair in data)
@@ -94,11 +84,5 @@ public class ResourceLocalizationFileProvider : ILocalizationFileProvider
             resourceWriter.Generate();
             
             resourceWriter.Close();
-        }
-        catch(Exception exception)
-        {
-            Console.WriteLine(exception);
-            throw;
-        }
     }
 }
