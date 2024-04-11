@@ -32,40 +32,24 @@ public class XmlLocalizationFileProvider : ILocalizationFileProvider
 {
     public KeyValuePair<string, string>[] Get(string pathToFile)
     {
-        try
+        XmlSerializer xmlSerializer = new XmlSerializer(typeof(List<KeyValuePair<string, string>>));
+
+        KeyValuePair<string, string>[] array;
+
+        using (Stream reader = new FileStream(pathToFile, FileMode.Open, FileAccess.Read))
         {
-            XmlSerializer xmlSerializer = new XmlSerializer(typeof(List<KeyValuePair<string, string>>));
-
-            KeyValuePair<string, string>[] array;
-
-            using (Stream reader = new FileStream(pathToFile, FileMode.Open, FileAccess.Read))
-            {
-                // Call the Deserialize method to restore the object's state.
-                array = (KeyValuePair<string, string>[])xmlSerializer.Deserialize(reader);
-            }
-
-            return array;
+            // Call the Deserialize method to restore the object's state.
+            array = (KeyValuePair<string, string>[])xmlSerializer.Deserialize(reader);
         }
-        catch (Exception exception)
-        {
-            Console.WriteLine(exception.ToString());
-            throw;
-        }
+
+        return array;
     }
 
     public void WriteToFile(KeyValuePair<string, string>[] data, string pathToFile)
     {
-        try
-        {
             FileStream fileStream = new FileStream(pathToFile, FileMode.Create);
             
             XmlSerializer xmlSerializer = new XmlSerializer(typeof(List<KeyValuePair<string, string>>));
             xmlSerializer.Serialize(fileStream, data);
-        }
-        catch (Exception exception)
-        {
-            Console.WriteLine(exception.ToString());
-            throw;
-        }
     }
 }

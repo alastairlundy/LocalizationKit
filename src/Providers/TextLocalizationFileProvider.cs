@@ -34,8 +34,6 @@ public class TextLocalizationFileProvider : ILocalizationFileProvider
 {
     public KeyValuePair<string, string>[] Get(string pathToFile)
     {
-        try
-        {
             List<KeyValuePair<string, string>> list = new List<KeyValuePair<string, string>>();
 
             string text = File.ReadAllText(pathToFile);
@@ -53,18 +51,10 @@ public class TextLocalizationFileProvider : ILocalizationFileProvider
             }
 
             return list.ToArray();
-        }
-        catch (Exception exception)
-        {
-            Console.WriteLine(exception);
-            throw;
-        }
     }
 
     public void WriteToFile(KeyValuePair<string, string>[] data, string pathToFile)
     {
-        try
-        {
             StringBuilder stringBuilder = new StringBuilder();
 
             foreach (var pair in data)
@@ -73,11 +63,5 @@ public class TextLocalizationFileProvider : ILocalizationFileProvider
             }
             
             File.WriteAllText(pathToFile, stringBuilder.ToString());
-        }
-        catch(Exception exception)
-        {
-            Console.WriteLine(exception);
-            throw;
-        }
     }
 }

@@ -64,8 +64,6 @@ public class Locale
 
     public void Parse(string locale)
     {
-        try
-        {
 #if NET6_0_OR_GREATER
             if (locale.Contains('_'))
             {
@@ -75,14 +73,7 @@ public class Locale
 
                 if (adjustedLocale[1].Equals(SeparatorCharacterToUse))
                 {
-                    if (adjustedLocale.Length > 2)
-                    {
-                        CountryCode = adjustedLocale[2].ToLower();
-                    }
-                    else
-                    {
-                        CountryCode = "";
-                    }
+                    CountryCode = adjustedLocale.Length > 2 ? adjustedLocale[2].ToLower() : "";
                 }
                 else
                 {
@@ -121,12 +112,6 @@ public class Locale
                     CountryCode = null;
                 }
             }
-        }
-        catch (Exception exception)
-        {
-            Console.WriteLine(exception.ToString());
-            throw;
-        }
     }
     
     /// <summary>
