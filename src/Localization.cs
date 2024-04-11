@@ -63,7 +63,7 @@ namespace LocalizationKit{
             LocaleCode = locale;
             Phrases = new Dictionary<string, string>();
 
-            foreach (var phrase in phrases)
+            foreach (KeyValuePair<string, string> phrase in phrases)
             {
                Load(phrase);
             }
@@ -74,6 +74,7 @@ namespace LocalizationKit{
         /// </summary>
         /// <param name="locale"></param>
         /// <param name="localizationFileProvider"></param>
+        /// <param name="pathToFile"></param>
         public Localization(Locale locale, ILocalizationFileProvider localizationFileProvider, string pathToFile)
         {
             LocaleCode = locale;
@@ -81,7 +82,7 @@ namespace LocalizationKit{
 
            KeyValuePair<string, string>[] data = localizationFileProvider.Get(pathToFile);
 
-           foreach (var phrase in data)
+           foreach (KeyValuePair<string, string> phrase in data)
            {
                Load(phrase);
            }

@@ -96,9 +96,9 @@ namespace LocalizationKit{
         {
             List<Locale> list = new List<Locale>();
             
-            foreach (var localization in Localizations)
+            foreach (Locale locale in Localizations.Keys)
             {
-                list.Add(localization.Key);
+                list.Add(locale);
             }
 
             return list.ToArray();

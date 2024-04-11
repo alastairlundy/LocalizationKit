@@ -69,7 +69,7 @@ public class Locale
 #if NET6_0_OR_GREATER
             if (locale.Contains('_'))
             {
-                var adjustedLocale = locale.Split('_');
+                string[] adjustedLocale = locale.Split('_');
 
                 LanguageCode = adjustedLocale[0].ToLower();
 
@@ -92,7 +92,7 @@ public class Locale
 #else
             if (locale.Contains("_"))
             {
-                var adjustedLocale = locale.Split(SeparatorCharacterToUse[0]);
+                string[] adjustedLocale = locale.Split(SeparatorCharacterToUse[0]);
 
                 LanguageCode = adjustedLocale[0].ToLower();
 
