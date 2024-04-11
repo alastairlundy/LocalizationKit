@@ -51,8 +51,6 @@ namespace LocalizationKit{
         /// <param name="localization"></param>
         public void LoadLocalization(Locale locale, Localization localization)
         {
-            if (Localizations.ContainsKey(locale)){
-
 #if NET6_0_OR_GREATER
             if (!Localizations.TryAdd(locale, localization))
 #else
@@ -94,7 +92,6 @@ namespace LocalizationKit{
         {
             return Localizations[locale].GetLocalizedPhrase(key, ignoreCase);
         }
-        
 
         /// <summary>
         /// Gets a list of Locales Stored in the LocalizationManager
