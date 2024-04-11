@@ -29,6 +29,17 @@ namespace LocalizationKit.Integrations.Azure;
 
 public static class LocalizationExtensions
 {
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <param name="localization"></param>
+    /// <param name="azureApiKey"></param>
+    /// <param name="azureRegion"></param>
+    /// <param name="newLocale"></param>
+    /// <param name="phraseToBeTranslated"></param>
+    /// <returns></returns>
+    /// <exception cref="NullReferenceException"></exception>
+    /// <exception cref="LocaleNotFoundException"></exception>
     public static KeyValuePair<string, string> TranslatePhraseWithAzure(this Localization localization, string azureApiKey, string azureRegion, Locale newLocale, KeyValuePair<string, string> phraseToBeTranslated)
     {
         AzureKeyCredential azureKeyCredential = new(azureApiKey);
@@ -49,6 +60,12 @@ public static class LocalizationExtensions
         }
     }
     
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <param name="client"></param>
+    /// <param name="locale"></param>
+    /// <returns></returns>
     public static bool CheckIfAzureSupportsLocale(TextTranslationClient client, Locale locale)
     {
         //Check if Language is supported by Azure Text Translator API.

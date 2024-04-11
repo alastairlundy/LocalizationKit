@@ -9,10 +9,9 @@
         <Copyright>Copyright (c) 2023-2024 Alastair Lundy</Copyright>
         <RepositoryUrl>https://github.com/alastairlundy/LocalizationKit</RepositoryUrl>
         <RepositoryType>git</RepositoryType>
-        <PackageReleaseNotes>### Changes since 1.0.0 Beta 2
-* Updated LocalizationKit to 6.0.0 Beta 1 from 6.0.0 Alpha 3
-* Fixed an issue with translating a Localization</PackageReleaseNotes>
-        <Version>1.0.0-beta.3</Version>
+        <PackageReleaseNotes>### Changes since 1.0.0 Beta 3
+* Updated compatibility with LocalizationKit to work with 6.0.0 Beta 2</PackageReleaseNotes>
+        <Version>1.0.0-beta.4</Version>
         <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
         <PackageLicenseFile>LICENSE.md</PackageLicenseFile>
         <LangVersion>default</LangVersion>
@@ -23,7 +22,7 @@
 
     <ItemGroup>
       <PackageReference Include="Azure.AI.Translation.Text" Version="1.0.0-beta.1" />
-      <PackageReference Include="LocalizationKit" Version="6.0.0-beta.1" />
+      <PackageReference Include="LocalizationKit" Version="6.0.0-beta.2" />
     </ItemGroup>
 
     <ItemGroup>
