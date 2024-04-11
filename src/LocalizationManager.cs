@@ -53,6 +53,12 @@ namespace LocalizationKit{
         {
             if (Localizations.ContainsKey(locale)){
 
+#if NET6_0_OR_GREATER
+            if (!Localizations.TryAdd(locale, localization))
+#else
+            if(Localizations.ContainsKey(locale))
+#endif
+            {
                 foreach (var keyValuePair in localization.Phrases)
                 {
                     Localizations[locale].Load(keyValuePair);
@@ -60,8 +66,10 @@ namespace LocalizationKit{
             }
             else
             {
+#if !NET6_0_OR_GREATER
+                Localizations.Add(locale, localization);                
+#endif
                 //Add the localization to the localizations list.
-                Localizations.Add(locale, localization);
             }
         }
 
