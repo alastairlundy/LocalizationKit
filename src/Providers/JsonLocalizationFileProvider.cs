@@ -50,10 +50,10 @@ namespace LocalizationKit.Providers
                 string[] lines = jsonText.Replace(" ", String.Empty).Split(Environment.NewLine.ToCharArray());
 #endif
 
-                foreach (var line in lines)
+                foreach (string line in lines)
                 {
-                    var newLine = line.Replace(" ", String.Empty);
-                    var splitLine = newLine.Split(':');
+                    string newLine = line.Replace(" ", String.Empty);
+                    string[] splitLine = newLine.Split(':');
 
                     if (splitLine.Length > 1)
                     {
@@ -71,7 +71,7 @@ namespace LocalizationKit.Providers
             stringBuilder.Append('{');
             stringBuilder.AppendLine();
             
-            foreach (var pair in data)
+            foreach (KeyValuePair<string, string> pair in data)
             {
                 stringBuilder.Append('"');
                 stringBuilder.Append(pair.Key);

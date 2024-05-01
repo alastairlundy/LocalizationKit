@@ -43,9 +43,9 @@ public class TextLocalizationFileProvider : ILocalizationFileProvider
 #else
             string[] lines = text.Replace(" ", String.Empty).Split(Environment.NewLine.ToCharArray());
 #endif
-            foreach (var line in lines)
+            foreach (string line in lines)
             {
-                var lineSplit = line.Split('=');
+                string[] lineSplit = line.Split('=');
                 
                 list.Add(new KeyValuePair<string, string>(lineSplit[0], lineSplit[1]));
             }
@@ -57,7 +57,7 @@ public class TextLocalizationFileProvider : ILocalizationFileProvider
     {
             StringBuilder stringBuilder = new StringBuilder();
 
-            foreach (var pair in data)
+            foreach (KeyValuePair<string, string> pair in data)
             {
                 stringBuilder.AppendLine($"{pair.Key}={pair.Value}");
             }
