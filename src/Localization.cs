@@ -119,7 +119,7 @@ namespace LocalizationKit{
         /// <param name="localizations"></param>
         public void Load(KeyValuePair<string, string>[] localizations)
         {
-            foreach (var keyValuePair in localizations)
+            foreach (KeyValuePair<string, string> keyValuePair in localizations)
             {
                 Load(keyValuePair);
             }
@@ -133,7 +133,7 @@ namespace LocalizationKit{
         /// <returns>A localized phrase - Usually a translation of a word or words.</returns>
         public string GetLocalizedPhrase(string key, bool ignoreCase = true)
         {
-            foreach(var pair in Phrases) { 
+            foreach(KeyValuePair<string, string> pair in Phrases) { 
                 if(pair.Key.Equals(key, ignoreCase ? StringComparison.OrdinalIgnoreCase : StringComparison.Ordinal))
                 {
                     return pair.Value;

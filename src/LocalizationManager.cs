@@ -57,7 +57,7 @@ namespace LocalizationKit{
             if(Localizations.ContainsKey(locale))
 #endif
             {
-                foreach (var keyValuePair in localization.Phrases)
+                foreach (KeyValuePair<string, string> keyValuePair in localization.Phrases)
                 {
                     Localizations[locale].Load(keyValuePair);
                 }
