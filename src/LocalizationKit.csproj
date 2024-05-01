@@ -9,16 +9,15 @@
         <Copyright>Copyright (c) 2021-2024 Alastair Lundy</Copyright>
         <RepositoryUrl>https://github.com/alastairlundy/LocalizationKit</RepositoryUrl>
         <RepositoryType>git</RepositoryType>
-        <PackageReleaseNotes>### Changes since 6.0.0 Beta 2
-* Simplified Localization loading code for .NET 6 (or later) users of this package
-* Removed unnecessary try/catch statements
-* Changed some variable typing in methods to explicitly state the type used
-* Added the proper disposal of IDictionaryEnumerator with Resource Localization</PackageReleaseNotes>
+        <PackageReleaseNotes>### Changes since 6.0.0 Beta 3
+* Replaced some string concatenation with string interpolation
+* Replaced some usage of var with explicit types
+* Replaced a for each loop in a method with a LINQ query.</PackageReleaseNotes>
         <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
         <AssemblyVersion>6.0.0.0</AssemblyVersion>
         <FileVersion>6.0.0.0</FileVersion>
         <Version>6.0.0</Version>
-        <PackageVersion>6.0.0-beta.3</PackageVersion>
+        <PackageVersion>6.0.0-rc.1</PackageVersion>
         <PackageLicenseFile>LICENSE.md</PackageLicenseFile>
         <LangVersion>default</LangVersion>
         <PackageReadmeFile>README.md</PackageReadmeFile>
