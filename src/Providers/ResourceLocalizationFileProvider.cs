@@ -54,9 +54,7 @@ public class ResourceLocalizationFileProvider : ILocalizationFileProvider
             }
         
             ResourceManager resourceManager = new ResourceManager(baseName, Assembly.GetEntryAssembly() ?? throw new NullReferenceException("Entry Assembly was null."));
-
-//            ResourceSet set = resourceManager.GetResourceSet(Thread.CurrentThread.CurrentUICulture, false, true);
-
+            
             ResourceReader reader = new ResourceReader(resourceManager.GetStream(pathToFile) ?? throw new NullReferenceException());
 
             IDictionaryEnumerator readerEnumerator = reader.GetEnumerator();
