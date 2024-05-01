@@ -59,7 +59,7 @@ public class TextLocalizationFileProvider : ILocalizationFileProvider
 
             foreach (var pair in data)
             {
-                stringBuilder.AppendLine(pair.Key + "=" + pair.Value);
+                stringBuilder.AppendLine($"{pair.Key}={pair.Value}");
             }
             
             File.WriteAllText(pathToFile, stringBuilder.ToString());
