@@ -95,10 +95,14 @@ namespace LocalizationKit{
         /// <param name="value"></param>
         public void Load(string key, string value)
         {
+#if NET5_0_OR_GREATER
+            if(!Phrases.TryAdd(key, value))
+#else
             if (!Phrases.ContainsKey(key))
-            {
+ #endif
+           {
                 Phrases.Add(key, value);
-            }
+           }
         }
         
         /// <summary>
@@ -107,8 +111,13 @@ namespace LocalizationKit{
         /// <param name="phrase"></param>
         public void Load(KeyValuePair<string, string> phrase)
         {
+#if NET5_0_OR_GREATER
+            if(!Phrases.TryAdd(phrase.Key, phrase.Value))
+#else
             if (!Phrases.ContainsKey(phrase.Key))
+#endif
             {
+                
                 Phrases.Add(phrase.Key, phrase.Value);
             }
         }
