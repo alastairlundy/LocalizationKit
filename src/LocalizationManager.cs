@@ -22,6 +22,7 @@ SOFTWARE.
  */
 
 using System.Collections.Generic;
+using System.Linq;
 
 namespace LocalizationKit{
     /// <summary>
@@ -99,14 +100,7 @@ namespace LocalizationKit{
         /// <returns></returns>
         public Locale[] GetLocalesStored()
         {
-            List<Locale> list = new List<Locale>();
-            
-            foreach (Locale locale in Localizations.Keys)
-            {
-                list.Add(locale);
-            }
-
-            return list.ToArray();
+           return Localizations.Keys.ToArray();
         }
     }
 }
