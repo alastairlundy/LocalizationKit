@@ -31,12 +31,12 @@ using LocalizationKit.Interfaces;
 namespace LocalizationKit.Providers;
 
 /// <summary>
-/// 
+/// A class to read and write Localizations to/from Text files.
 /// </summary>
 public class TextLocalizationFileProvider : ILocalizationFileProvider
 {
     /// <summary>
-    /// 
+    /// Retrieves string Keys and Values stored in a .txt Text File.
     /// </summary>
     /// <param name="pathToFile"></param>
     /// <returns></returns>
@@ -62,7 +62,7 @@ public class TextLocalizationFileProvider : ILocalizationFileProvider
     }
 
     /// <summary>
-    /// 
+    /// Writes the specified data to a .txt Text file.
     /// </summary>
     /// <param name="data"></param>
     /// <param name="pathToFile"></param>

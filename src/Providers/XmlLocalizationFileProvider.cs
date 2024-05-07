@@ -29,12 +29,12 @@ using LocalizationKit.Interfaces;
 namespace LocalizationKit.Providers;
 
 /// <summary>
-/// 
+/// A class to read and write Localizations to/from XML files.
 /// </summary>
 public class XmlLocalizationFileProvider : ILocalizationFileProvider
 {
     /// <summary>
-    /// 
+    /// Retrieves string Keys and Values stored in a XML File.
     /// </summary>
     /// <param name="pathToFile"></param>
     /// <returns></returns>
@@ -54,7 +54,7 @@ public class XmlLocalizationFileProvider : ILocalizationFileProvider
     }
 
     /// <summary>
-    /// 
+    /// Writes the specified data to a XML file.
     /// </summary>
     /// <param name="data"></param>
     /// <param name="pathToFile"></param>

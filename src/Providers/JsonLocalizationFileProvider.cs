@@ -31,12 +31,12 @@ using LocalizationKit.Interfaces;
 namespace LocalizationKit.Providers
 {
     /// <summary>
-    /// 
+    /// A class to read and write Localizations to/from JSON files.
     /// </summary>
     public class JsonLocalizationFileProvider : ILocalizationFileProvider
     {
         /// <summary>
-        /// 
+        /// Retrieves string Keys and Values stored in a Json File.
         /// </summary>
         /// <param name="pathToFile"></param>
         /// <returns></returns>
@@ -60,7 +60,7 @@ namespace LocalizationKit.Providers
 
                 foreach (string line in lines)
                 {
-                    string newLine = line.Replace(" ", String.Empty);
+                    string newLine = line.Replace(" ", string.Empty);
                     string[] splitLine = newLine.Split(':');
 
                     if (splitLine.Length > 1)
@@ -73,7 +73,7 @@ namespace LocalizationKit.Providers
         }
 
         /// <summary>
-        /// 
+        /// Writes the specified data to a Json file.
         /// </summary>
         /// <param name="data"></param>
         /// <param name="pathToFile"></param>

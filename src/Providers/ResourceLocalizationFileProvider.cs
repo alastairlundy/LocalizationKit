@@ -32,12 +32,12 @@ using LocalizationKit.Interfaces;
 namespace LocalizationKit.Providers;
 
 /// <summary>
-/// 
+/// A class to read and write Localizations to/from Resource files.
 /// </summary>
 public class ResourceLocalizationFileProvider : ILocalizationFileProvider
 {
     /// <summary>
-    /// 
+    /// Retrieves string Keys and Values stored in a Resource File.
     /// </summary>
     /// <param name="pathToFile"></param>
     /// <returns></returns>
@@ -50,15 +50,15 @@ public class ResourceLocalizationFileProvider : ILocalizationFileProvider
 
             if (pathToFile.EndsWith(".resw"))
             {
-                baseName = pathToFile.Replace(".resw", String.Empty);
+                baseName = pathToFile.Replace(".resw", string.Empty);
             }
             if (pathToFile.EndsWith(".resx"))
             {
-                baseName = pathToFile.Replace(".resx", String.Empty);
+                baseName = pathToFile.Replace(".resx", string.Empty);
             }
             if (pathToFile.EndsWith(".resources"))
             {
-                baseName = pathToFile.Replace(".resources", String.Empty);
+                baseName = pathToFile.Replace(".resources", string.Empty);
             }
         
             ResourceManager resourceManager = new ResourceManager(baseName, Assembly.GetEntryAssembly() ?? throw new NullReferenceException("Entry Assembly was null."));
@@ -83,7 +83,7 @@ public class ResourceLocalizationFileProvider : ILocalizationFileProvider
     }
 
     /// <summary>
-    /// 
+    /// Writes the specified data to a Resource file.
     /// </summary>
     /// <param name="data"></param>
     /// <param name="pathToFile"></param>
