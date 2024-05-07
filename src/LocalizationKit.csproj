@@ -9,15 +9,36 @@
         <Copyright>Copyright (c) 2021-2024 Alastair Lundy</Copyright>
         <RepositoryUrl>https://github.com/alastairlundy/LocalizationKit</RepositoryUrl>
         <RepositoryType>git</RepositoryType>
-        <PackageReleaseNotes>### Changes since 6.0.0 Beta 3
+        <PackageReleaseNotes>## Changes since 5.1 series
+
+### Additions
+* Added methods to make it easier to add Localization Phrases to Localization classes.
+* Re-added support for .NET Standard 2.0
+* Add LocalizationFile - This replaces ILocalizationFile
+* Ported Xml file support from SettingsKit 5.x - This is called XmlLocalizationFileProvider
+* Added TextLocalizationFileProvider
+* Added ResourceLocalizationFileProvider - This is somewhat experimental
+
+### Changes
 * Replaced some string concatenation with string interpolation
 * Replaced some usage of var with explicit types
-* Replaced a for each loop in a method with a LINQ query.</PackageReleaseNotes>
+* Replaced a for each loop in a method with a LINQ query.
+* Simplified Localization loading code for .NET 6 (or later) users of this package
+* Removed unnecessary try/catch statements
+* Added the proper disposal of IDictionaryEnumerator with Resource Localization
+* Made it easier to access LocalizationManager class's internal Dictionary
+* Renamed root namespace to LocalizationKit
+* Improved Json localization file support - This now supports localization files with implicit Key Value Pairs e.g. "Key":"Value". Explicit Key Value Pair separation (e.g. "Key": "", "Value":"" ) is no longer supported
+
+### Removals
+* Removed deprecated code
+* Removed dependency on SettingsKit
+* Removed LocalizationFile class to make working with Localizations easier and less cumbersome</PackageReleaseNotes>
         <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
         <AssemblyVersion>6.0.0.0</AssemblyVersion>
         <FileVersion>6.0.0.0</FileVersion>
         <Version>6.0.0</Version>
-        <PackageVersion>6.0.0-rc.1</PackageVersion>
+        <PackageVersion>6.0.0</PackageVersion>
         <PackageLicenseFile>LICENSE.md</PackageLicenseFile>
         <LangVersion>default</LangVersion>
         <PackageReadmeFile>README.md</PackageReadmeFile>
