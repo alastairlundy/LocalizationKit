@@ -9,15 +9,16 @@
         <Copyright>Copyright (c) 2023-2024 Alastair Lundy</Copyright>
         <RepositoryUrl>https://github.com/alastairlundy/LocalizationKit</RepositoryUrl>
         <RepositoryType>git</RepositoryType>
-        <PackageReleaseNotes>### Changes since 1.0.0 Beta 3
-* Updated compatibility with LocalizationKit to work with 6.0.0 Beta 2</PackageReleaseNotes>
-        <Version>1.0.0-beta.4</Version>
+        <PackageReleaseNotes>### Changes since 1.0.0 Beta 4
+* Updated compatibility with LocalizationKit to work with 6.0 and future 6.x versions</PackageReleaseNotes>
+        <Version>1.0.0-beta.5</Version>
         <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
         <PackageLicenseFile>LICENSE.md</PackageLicenseFile>
         <LangVersion>default</LangVersion>
         <PackageReadmeFile>README.md</PackageReadmeFile>
         <TargetFrameworks>net8.0;netstandard2.0;net6.0</TargetFrameworks>
         <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
+        <Authors>AlastairLundy</Authors>
     </PropertyGroup>
 
     <ItemGroup>
