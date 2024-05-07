@@ -27,7 +27,6 @@ using System.Collections.Generic;
 
 using System.Reflection;
 using System.Resources;
-using System.Threading;
 using LocalizationKit.Interfaces;
 
 namespace LocalizationKit.Providers;
