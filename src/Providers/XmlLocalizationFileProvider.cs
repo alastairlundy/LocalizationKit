@@ -28,8 +28,16 @@ using LocalizationKit.Interfaces;
 
 namespace LocalizationKit.Providers;
 
+/// <summary>
+/// 
+/// </summary>
 public class XmlLocalizationFileProvider : ILocalizationFileProvider
 {
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <param name="pathToFile"></param>
+    /// <returns></returns>
     public KeyValuePair<string, string>[] Get(string pathToFile)
     {
         XmlSerializer xmlSerializer = new XmlSerializer(typeof(List<KeyValuePair<string, string>>));
@@ -45,6 +53,11 @@ public class XmlLocalizationFileProvider : ILocalizationFileProvider
         return array;
     }
 
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <param name="data"></param>
+    /// <param name="pathToFile"></param>
     public void WriteToFile(KeyValuePair<string, string>[] data, string pathToFile)
     {
             FileStream fileStream = new FileStream(pathToFile, FileMode.Create);

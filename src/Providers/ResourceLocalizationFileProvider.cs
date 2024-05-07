@@ -31,8 +31,17 @@ using LocalizationKit.Interfaces;
 
 namespace LocalizationKit.Providers;
 
+/// <summary>
+/// 
+/// </summary>
 public class ResourceLocalizationFileProvider : ILocalizationFileProvider
 {
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <param name="pathToFile"></param>
+    /// <returns></returns>
+    /// <exception cref="NullReferenceException"></exception>
     public KeyValuePair<string, string>[] Get(string pathToFile)
     {
             List<KeyValuePair<string, string>> list = new List<KeyValuePair<string, string>>();
@@ -73,6 +82,11 @@ public class ResourceLocalizationFileProvider : ILocalizationFileProvider
             return list.ToArray();
     }
 
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <param name="data"></param>
+    /// <param name="pathToFile"></param>
     public void WriteToFile(KeyValuePair<string, string>[] data, string pathToFile)
     {
             ResourceWriter resourceWriter = new ResourceWriter(pathToFile);

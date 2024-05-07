@@ -30,8 +30,16 @@ using LocalizationKit.Interfaces;
 
 namespace LocalizationKit.Providers;
 
+/// <summary>
+/// 
+/// </summary>
 public class TextLocalizationFileProvider : ILocalizationFileProvider
 {
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <param name="pathToFile"></param>
+    /// <returns></returns>
     public KeyValuePair<string, string>[] Get(string pathToFile)
     {
             List<KeyValuePair<string, string>> list = new List<KeyValuePair<string, string>>();
@@ -53,6 +61,11 @@ public class TextLocalizationFileProvider : ILocalizationFileProvider
             return list.ToArray();
     }
 
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <param name="data"></param>
+    /// <param name="pathToFile"></param>
     public void WriteToFile(KeyValuePair<string, string>[] data, string pathToFile)
     {
             StringBuilder stringBuilder = new StringBuilder();
