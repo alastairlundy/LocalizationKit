@@ -18,6 +18,7 @@
         <PackageReadmeFile>README.md</PackageReadmeFile>
         <TargetFrameworks>net8.0;netstandard2.0;net6.0</TargetFrameworks>
         <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
+        <ImplicitUsings>false</ImplicitUsings>
         <Authors>AlastairLundy</Authors>
     </PropertyGroup>
 

@@ -21,28 +21,26 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
  */
 
+using Azure;
+using Azure.AI.Translation.Text;
+
 namespace LocalizationKit.Integrations.Azure;
 
-public static class LocalizationManagerExtensions
+public static class LocaleExtensions
 {
     /// <summary>
-    /// Uses Azure's AI powered cloud translation service to translate a Localization to a specified Locale
+    /// Checks to see if a locale is supported by Azure's AI Text Translation service.
     /// </summary>
-    /// <param name="localizationManager"></param>
-    /// <param name="localizationToUse">The localization to be translated.</param>
-    /// <param name="azureApiKey">Your Azure API key for the AI powered translation service.</param>
-    /// <param name="azureRegion">The Azure Region you are using for this.</param>
-    /// <param name="newLocale">The locale to be translated to.</param>
-    /// <returns></returns>
-    public static Localization GenerateLocalizationWithAzure(this LocalizationManager localizationManager, Localization localizationToUse, string azureApiKey, string azureRegion, Locale newLocale)
+    /// <param name="locale">The locale to checked for support.</param>
+    /// <param name="client"></param>
+    /// <returns>true if a locale is supported by Azure; returns false otherwise.</returns>
+    public static bool CheckIfAzureSupportsLocale(this Locale locale, TextTranslationClient client)
     {
-        Localization newLocalization = new Localization(newLocale);
+        //Check if Language is supported by Azure Text Translator API.
+        Response<GetSupportedLanguagesResult> response = client.GetSupportedLanguages();
+       
+        GetSupportedLanguagesResult languages = response.Value;
 
-        foreach (KeyValuePair<string, string> translation in localizationToUse.Phrases)
-        {
-            newLocalization.Phrases.Add(translation.Key, localizationToUse.TranslatePhraseWithAzure(azureApiKey, azureRegion, newLocale, translation).Value);
-        }
-
-        return newLocalization;
+        return languages.Translation.ContainsKey(locale.ToString());
     }
 }

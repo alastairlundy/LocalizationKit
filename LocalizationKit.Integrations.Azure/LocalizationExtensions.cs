@@ -21,60 +21,29 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
  */
 
-using Azure;
-using Azure.AI.Translation.Text;
-
-using LocalizationKit;
-using LocalizationKit.Exceptions;
+using System.Collections.Generic;
 
 namespace LocalizationKit.Integrations.Azure;
 
 public static class LocalizationExtensions
 {
     /// <summary>
-    /// 
+    /// Uses Azure's AI powered cloud translation service to translate a Localization to a specified Locale.
     /// </summary>
-    /// <param name="localization"></param>
-    /// <param name="azureApiKey"></param>
-    /// <param name="azureRegion"></param>
-    /// <param name="newLocale"></param>
-    /// <param name="phraseToBeTranslated"></param>
-    /// <returns></returns>
-    /// <exception cref="NullReferenceException"></exception>
-    /// <exception cref="LocaleNotFoundException"></exception>
-    public static KeyValuePair<string, string> TranslatePhraseWithAzure(this Localization localization, string azureApiKey, string azureRegion, Locale newLocale, KeyValuePair<string, string> phraseToBeTranslated)
+    /// <param name="localizationToUse">The localization to be translated.</param>
+    /// <param name="azureApiKey">Your Azure API key for the AI powered translation service.</param>
+    /// <param name="azureRegion">The Azure Region you are using for this.</param>
+    /// <param name="newLocale">The locale to be translated to.</param>
+    /// <returns>the translated Localization object.</returns>
+    public static Localization TranslateWithAzure(this Localization localizationToUse, string azureApiKey, string azureRegion, Locale newLocale)
     {
-        AzureKeyCredential azureKeyCredential = new AzureKeyCredential(azureApiKey);
-        TextTranslationClient client = new(azureKeyCredential, azureRegion);
+        Localization newLocalization = new Localization(newLocale);
 
-        if (CheckIfAzureSupportsLocale(client, newLocale))
+        foreach (KeyValuePair<string, string> translation in localizationToUse.Phrases)
         {
-            Response<IReadOnlyList<TranslatedTextItem>> response = client.Translate(newLocale.LanguageCode, phraseToBeTranslated.Value);
-            IReadOnlyList<TranslatedTextItem> translations = response.Value;
-            TranslatedTextItem translation = translations.FirstOrDefault() ?? throw new NullReferenceException();
-
-            return new KeyValuePair<string, string>(phraseToBeTranslated.Key,
-                translation?.Translations?.FirstOrDefault()?.ToString() ?? throw new NullReferenceException());
+            newLocalization.Phrases.Add(translation.Key, translation.Value.TranslatePhraseWithAzure(azureApiKey, azureRegion, newLocale));
         }
-        else
-        {
-            throw new LocaleNotFoundException();
-        }
-    }
-    
-    /// <summary>
-    /// 
-    /// </summary>
-    /// <param name="client"></param>
-    /// <param name="locale"></param>
-    /// <returns></returns>
-    public static bool CheckIfAzureSupportsLocale(TextTranslationClient client, Locale locale)
-    {
-        //Check if Language is supported by Azure Text Translator API.
-        Response<GetSupportedLanguagesResult> response = client.GetSupportedLanguages();
-       
-        GetSupportedLanguagesResult languages = response.Value;
 
-        return languages.Translation.ContainsKey(locale.ToString());
+        return newLocalization;
     }
 }
