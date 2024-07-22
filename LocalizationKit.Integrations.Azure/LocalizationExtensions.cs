@@ -44,7 +44,7 @@ public static class LocalizationExtensions
     /// <exception cref="LocaleNotFoundException"></exception>
     public static KeyValuePair<string, string> TranslatePhraseWithAzure(this Localization localization, string azureApiKey, string azureRegion, Locale newLocale, KeyValuePair<string, string> phraseToBeTranslated)
     {
-        AzureKeyCredential azureKeyCredential = new(azureApiKey);
+        AzureKeyCredential azureKeyCredential = new AzureKeyCredential(azureApiKey);
         TextTranslationClient client = new(azureKeyCredential, azureRegion);
 
         if (CheckIfAzureSupportsLocale(client, newLocale))
@@ -54,7 +54,7 @@ public static class LocalizationExtensions
             TranslatedTextItem translation = translations.FirstOrDefault() ?? throw new NullReferenceException();
 
             return new KeyValuePair<string, string>(phraseToBeTranslated.Key,
-                translation?.Translations?.FirstOrDefault()?.To ?? throw new NullReferenceException());
+                translation?.Translations?.FirstOrDefault()?.ToString() ?? throw new NullReferenceException());
         }
         else
         {
@@ -71,8 +71,9 @@ public static class LocalizationExtensions
     public static bool CheckIfAzureSupportsLocale(TextTranslationClient client, Locale locale)
     {
         //Check if Language is supported by Azure Text Translator API.
-        Response<GetLanguagesResult> response = client.GetLanguages(cancellationToken: CancellationToken.None);
-        GetLanguagesResult languages = response.Value;
+        Response<GetSupportedLanguagesResult> response = client.GetSupportedLanguages();
+       
+        GetSupportedLanguagesResult languages = response.Value;
 
         return languages.Translation.ContainsKey(locale.ToString());
     }
