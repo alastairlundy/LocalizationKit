@@ -23,6 +23,7 @@ SOFTWARE.
 
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using LocalizationKit.Interfaces;
 
 // ReSharper disable FieldCanBeMadeReadOnly.Global
@@ -63,10 +64,7 @@ namespace LocalizationKit{
             LocaleCode = locale;
             Phrases = new Dictionary<string, string>();
 
-            foreach (KeyValuePair<string, string> phrase in phrases)
-            {
-               Load(phrase);
-            }
+            AddPhrases(phrases);
         }
 
         /// <summary>
@@ -82,10 +80,7 @@ namespace LocalizationKit{
 
            KeyValuePair<string, string>[] data = localizationFileProvider.Get(pathToFile);
 
-           foreach (KeyValuePair<string, string> phrase in data)
-           {
-               Load(phrase);
-           }
+           AddPhrases(data);
         }
 
         /// <summary>
@@ -93,23 +88,34 @@ namespace LocalizationKit{
         /// </summary>
         /// <param name="key"></param>
         /// <param name="value"></param>
-        public void Load(string key, string value)
+        public void AddPhrase(string key, string value)
         {
 #if NET5_0_OR_GREATER
             if(!Phrases.TryAdd(key, value))
 #else
             if (!Phrases.ContainsKey(key))
- #endif
-           {
+#endif
+            {
                 Phrases.Add(key, value);
-           }
+            }
         }
         
+        /// <summary>
+        /// Add a single Key and a single Value to the localizations.
+        /// </summary>
+        /// <param name="key"></param>
+        /// <param name="value"></param>
+        [Obsolete("Use AddPhrase instead")]
+        public void Load(string key, string value)
+        {
+            AddPhrase(key, value);
+        }
+
         /// <summary>
         /// Add a single KeyValuePair to the localizations.
         /// </summary>
         /// <param name="phrase"></param>
-        public void Load(KeyValuePair<string, string> phrase)
+        public void AddPhrase(KeyValuePair<string, string> phrase)
         {
 #if NET5_0_OR_GREATER
             if(!Phrases.TryAdd(phrase.Key, phrase.Value))
@@ -117,21 +123,40 @@ namespace LocalizationKit{
             if (!Phrases.ContainsKey(phrase.Key))
 #endif
             {
-                
                 Phrases.Add(phrase.Key, phrase.Value);
             }
+        }
+        
+        /// <summary>
+        /// Add a single KeyValuePair to the localizations.
+        /// </summary>
+        /// <param name="phrase"></param>
+        [Obsolete("Use AddPhrase instead")]
+        public void Load(KeyValuePair<string, string> phrase)
+        {
+            AddPhrase(phrase);
+        }
+
+        /// <summary>
+        /// Add a single KeyValuePair to the localizations.
+        /// </summary>
+        /// <param name="phrases"></param>
+        public void AddPhrases(IEnumerable<KeyValuePair<string, string>> phrases)
+        {
+            foreach (KeyValuePair<string, string> keyValuePair in phrases)
+            {
+                AddPhrase(keyValuePair);
+            }  
         }
         
         /// <summary>
         /// Add an array of Localization KeyValuePairs
         /// </summary>
         /// <param name="localizations"></param>
+        [Obsolete("Use AddPhrases instead")]
         public void Load(KeyValuePair<string, string>[] localizations)
         {
-            foreach (KeyValuePair<string, string> keyValuePair in localizations)
-            {
-                Load(keyValuePair);
-            }
+           AddPhrases(localizations);
         }
 
         /// <summary>
