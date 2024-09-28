@@ -50,7 +50,7 @@ public class Locale
     /// <returns></returns>
     public override string ToString()
     {
-        if (CountryCode == null)
+        if (CountryCode is null)
         {
             return LanguageCode.ToLower();
         }
