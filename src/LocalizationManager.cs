@@ -60,7 +60,7 @@ namespace LocalizationKit{
             {
                 foreach (KeyValuePair<string, string> keyValuePair in localization.Phrases)
                 {
-                    Localizations[locale].Load(keyValuePair);
+                    Localizations[locale].AddPhrase(keyValuePair);
                 }
             }
             else
