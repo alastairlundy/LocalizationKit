@@ -27,8 +27,8 @@ namespace LocalizationKit.Interfaces
 {
     public interface ILocalizationFileProvider
     {
-        KeyValuePair<string, string>[] Get(string pathToFile);
+        public IEnumerable<KeyValuePair<string, string>> Get(string pathToFile);
 
-        void WriteToFile(KeyValuePair<string, string>[] data, string pathToFile);
+        public void WriteToFile(IEnumerable<KeyValuePair<string, string>> data, string pathToFile);
     }
 }
