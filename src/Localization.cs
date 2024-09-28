@@ -59,7 +59,7 @@ namespace LocalizationKit{
         /// </summary>
         /// <param name="locale"></param>
         /// <param name="phrases"></param>
-        public Localization(Locale locale, KeyValuePair<string, string>[] phrases)
+        public Localization(Locale locale, IEnumerable<KeyValuePair<string, string>> phrases)
         {
             LocaleCode = locale;
             Phrases = new Dictionary<string, string>();
@@ -78,7 +78,7 @@ namespace LocalizationKit{
             LocaleCode = locale;
             Phrases = new Dictionary<string, string>();
 
-           KeyValuePair<string, string>[] data = localizationFileProvider.Get(pathToFile);
+           List<KeyValuePair<string, string>> data = localizationFileProvider.Get(pathToFile).ToList();
 
            AddPhrases(data);
         }
