@@ -42,7 +42,7 @@
         <PackageLicenseFile>LICENSE.md</PackageLicenseFile>
         <LangVersion>default</LangVersion>
         <PackageReadmeFile>README.md</PackageReadmeFile>
-        <TargetFrameworks>net6.0;net8.0;netstandard2.0</TargetFrameworks>
+        <TargetFrameworks>net6.0;net8.0</TargetFrameworks>
         <ImplicitUsings>false</ImplicitUsings>
     </PropertyGroup>
 
@@ -62,6 +62,10 @@
 
     <ItemGroup>
       <EmbeddedResource Remove="LocalizationKitTest\**" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <PackageReference Include="AlastairLundy.Extensions.IO" Version="1.0.0" />
     </ItemGroup>
 
 </Project>

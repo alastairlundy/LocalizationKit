@@ -23,7 +23,7 @@ SOFTWARE.
 
 using System;
 using System.Collections.Generic;
-using LocalizationKit.Interfaces;
+using AlastairLundy.Extensions.IO.Providers.KeyValueProviders.Abstractions;
 
 // ReSharper disable FieldCanBeMadeReadOnly.Global
 // ReSharper disable InconsistentNaming
@@ -75,7 +75,7 @@ namespace LocalizationKit{
         /// <param name="locale"></param>
         /// <param name="localizationFileProvider"></param>
         /// <param name="pathToFile"></param>
-        public Localization(Locale locale, ILocalizationFileProvider localizationFileProvider, string pathToFile)
+        public Localization(Locale locale, IKeyValueFileProvider localizationFileProvider, string pathToFile)
         {
             LocaleCode = locale;
             Phrases = new Dictionary<string, string>();

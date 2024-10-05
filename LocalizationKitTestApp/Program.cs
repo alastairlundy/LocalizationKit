@@ -22,7 +22,6 @@ SOFTWARE.
  */
 
 using LocalizationKit;
-using LocalizationKit.Providers;
 
 LocalizationManager localizationManager = new LocalizationManager();
 
