@@ -40,7 +40,7 @@ public class TextLocalizationFileProvider : ILocalizationFileProvider
     /// </summary>
     /// <param name="pathToFile"></param>
     /// <returns></returns>
-    public IEnumerable<KeyValuePair<string, string>> Get(string pathToFile)
+    public KeyValuePair<string, string>[] Get(string pathToFile)
     {
             List<KeyValuePair<string, string>> list = new List<KeyValuePair<string, string>>();
 
@@ -66,7 +66,7 @@ public class TextLocalizationFileProvider : ILocalizationFileProvider
     /// </summary>
     /// <param name="data"></param>
     /// <param name="pathToFile"></param>
-    public void WriteToFile(IEnumerable<KeyValuePair<string, string>> data, string pathToFile)
+    public void WriteToFile(KeyValuePair<string, string>[] data, string pathToFile)
     {
             StringBuilder stringBuilder = new StringBuilder();
 
