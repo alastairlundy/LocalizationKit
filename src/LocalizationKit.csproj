@@ -54,14 +54,17 @@
       </None>
         <None Include="../README.md" Pack="true" PackagePath="\" />
       <None Remove="LocalizationKitTest\**" />
+      <None Remove="ConfigurationKit\**" />
     </ItemGroup>
 
     <ItemGroup>
       <Compile Remove="LocalizationKitTest\**" />
+      <Compile Remove="ConfigurationKit\**" />
     </ItemGroup>
 
     <ItemGroup>
       <EmbeddedResource Remove="LocalizationKitTest\**" />
+      <EmbeddedResource Remove="ConfigurationKit\**" />
     </ItemGroup>
 
 </Project>
