@@ -6,6 +6,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LocalizationKitTestApp", ".
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LocalizationKit.Integrations.Azure", "..\LocalizationKit.Integrations.Azure\LocalizationKit.Integrations.Azure.csproj", "{65B31639-FA17-4C5E-9561-30CC35F94714}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AlastairLundy.Extensions.Localization", "..\AlastairLundy.Extensions.Localization\AlastairLundy.Extensions.Localization.csproj", "{3D394AAC-C577-44E7-9D52-10987C4F9E5F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -24,5 +26,9 @@ Global
 		{65B31639-FA17-4C5E-9561-30CC35F94714}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{65B31639-FA17-4C5E-9561-30CC35F94714}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{65B31639-FA17-4C5E-9561-30CC35F94714}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3D394AAC-C577-44E7-9D52-10987C4F9E5F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3D394AAC-C577-44E7-9D52-10987C4F9E5F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3D394AAC-C577-44E7-9D52-10987C4F9E5F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3D394AAC-C577-44E7-9D52-10987C4F9E5F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
